@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eq9-Xq-oJI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="FE3-JC-3ro">
+            <objects>
+                <viewController id="eq9-Xq-oJI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sD9-bn-UPr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Kqh-Aa-A6d">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2vC-IW-NTd">
+                                <rect key="frame" x="41.5" y="817" width="331" height="65"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHx-pR-oQw">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
+                                        <color key="backgroundColor" red="0.341726891939726" green="0.50656140884931511" blue="0.80700250136849316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggK-RU-JLU">
+                                        <rect key="frame" x="0.0" y="35" width="331" height="30"/>
+                                        <color key="backgroundColor" red="0.34286204419999999" green="0.5065614088" blue="0.80700250139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.3428620442183723" green="0.50656140884931511" blue="0.80700250136849316" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.62546764964788737" green="0.87046656853233706" blue="0.8729093309859155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2vC-IW-NTd" firstAttribute="width" secondItem="sD9-bn-UPr" secondAttribute="width" multiplier="0.8" id="aSU-hu-taY"/>
+                            <constraint firstItem="Kqh-Aa-A6d" firstAttribute="centerX" secondItem="sD9-bn-UPr" secondAttribute="centerX" id="cz8-gg-HtG"/>
+                            <constraint firstItem="Kqh-Aa-A6d" firstAttribute="centerY" secondItem="sD9-bn-UPr" secondAttribute="centerY" id="h0E-vE-W7f"/>
+                            <constraint firstItem="2vC-IW-NTd" firstAttribute="bottom" secondItem="u1s-eU-ESh" secondAttribute="bottom" constant="20" id="j7z-4G-boV"/>
+                            <constraint firstItem="2vC-IW-NTd" firstAttribute="centerX" secondItem="sD9-bn-UPr" secondAttribute="centerX" id="vqC-ea-9HW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u1s-eU-ESh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsj-fL-hnf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="-90"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="placeholder" width="100" height="100"/>
+    </resources>
+</document>

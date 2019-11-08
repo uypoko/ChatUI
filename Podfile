@@ -10,4 +10,7 @@ target 'ChatUI' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'RealmSwift', '3.21.0'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 end

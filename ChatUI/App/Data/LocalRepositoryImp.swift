@@ -9,14 +9,14 @@
 import Foundation
 import RxSwift
 
-struct LocalRepositoryImp: LocalRepository {
+class LocalRepositoryImp: LocalRepository {
     
     private var docsURL: URL? {
       return FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory,
         in: FileManager.SearchPathDomainMask.allDomainsMask).first?.appendingPathComponent("user_session.json")
     }
     
-    func readUserSession() -> Single<UserSession> {
+    func fetchUserSession() -> Single<UserSession> {
         return Single.create(subscribe: { single in
             let disposables = Disposables.create()
             

@@ -47,11 +47,19 @@ class SignUpViewController: UIViewController {
     private func observeErrorMessages() {
         guard let viewModel = viewModel else { return }
         
-        viewModel.errorMessages
+        viewModel.messages
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] errorMessage in
-                self?.showAlert(message: errorMessage, completion: nil)
-            })
+            .subscribe(
+                onNext: { [weak self] message in
+                    guard let self = self else { return }
+                    self.showAlert(
+                        message: message,
+                        completion: { _ in self.viewModel?.didShowSuccessMessage() })
+                },
+                onError: { [weak self] error in
+                    self?.showAlert(message: error.localizedDescription, completion: nil)
+                }
+            )
             .disposed(by: disposeBag)
     }
     
@@ -103,26 +111,26 @@ class SignUpViewController: UIViewController {
 // MARK: Handle keyboard
 extension SignUpViewController {
   
-  private func registerForKeyboardNotifications() {
-      NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-      NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
-  }
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardDisappear), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
   
-  private func removeObservers() {
-    NotificationCenter.default.removeObserver(self)
-  }
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(self)
+    }
   
-  @objc func onKeyboardAppear(_ notification: NSNotification) {
-      let info = notification.userInfo!
-      let rect: CGRect = info[UIResponder.keyboardFrameBeginUserInfoKey] as! CGRect
-      let kbSize = rect.size
-      let insets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
-      scrollView.contentInset = insets
-      scrollView.scrollIndicatorInsets = insets
-  }
-  
-  @objc func onKeyboardDisappear(_ notification: NSNotification) {
-      scrollView.contentInset = UIEdgeInsets.zero
-      scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
-  }
+    @objc func onKeyboardAppear(_ notification: NSNotification) {
+        guard let info = notification.userInfo else { return }
+        guard let rect: CGRect = info[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect else { return }
+        let kbSize = rect.size
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
+        scrollView.contentInset = insets
+        scrollView.scrollIndicatorInsets = insets
+    }
+
+    @objc func onKeyboardDisappear(_ notification: NSNotification) {
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
 }

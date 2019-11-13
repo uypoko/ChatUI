@@ -40,11 +40,16 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="luY-yd-WMD">
+                                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="luY-yd-WMD" firstAttribute="centerX" secondItem="F1u-84-BHa" secondAttribute="centerX" id="QfI-zC-jNr"/>
                                             <constraint firstItem="o9p-Tq-lMf" firstAttribute="centerX" secondItem="F1u-84-BHa" secondAttribute="centerX" id="l9L-7a-fpa"/>
                                             <constraint firstItem="o9p-Tq-lMf" firstAttribute="width" secondItem="F1u-84-BHa" secondAttribute="width" multiplier="0.9" id="lng-gJ-tBM"/>
+                                            <constraint firstItem="luY-yd-WMD" firstAttribute="centerY" secondItem="F1u-84-BHa" secondAttribute="centerY" id="pyd-Zj-Uad"/>
                                             <constraint firstItem="o9p-Tq-lMf" firstAttribute="centerY" secondItem="F1u-84-BHa" secondAttribute="centerY" id="wxV-bv-PmP"/>
                                         </constraints>
                                     </view>
@@ -71,6 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="WqL-Ek-NGW"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="luY-yd-WMD" id="gdV-zQ-rnS"/>
                         <outlet property="emailField" destination="tAh-B6-FEz" id="vvx-mQ-C1x"/>
                         <outlet property="passwordField" destination="uj9-D9-ocH" id="ZnA-Be-TyA"/>
                         <outlet property="scrollView" destination="Ynm-VW-h1I" id="4dK-o3-pS6"/>

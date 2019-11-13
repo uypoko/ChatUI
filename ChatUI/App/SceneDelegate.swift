@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let appDelegate = appDelegate else { return }
         let appDependencyContainer = appDelegate.appDependencyContainer
-        window?.rootViewController = appDependencyContainer.makeRootViewController()
+        window?.rootViewController = appDependencyContainer.constructRootViewController()
         
         window?.makeKeyAndVisible()
     }

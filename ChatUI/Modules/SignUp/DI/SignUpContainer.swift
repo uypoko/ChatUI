@@ -15,7 +15,7 @@ class SignUpContainer {
         self.appDependencyContainer = appDependencyContainer
     }
     
-    func makeSignUpViewController() -> SignUpViewController {
+    func constructSignUpViewController() -> SignUpViewController {
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
         guard let viewController = storyboard.instantiateInitialViewController() as? SignUpViewController else {
             fatalError("Failed to initialize Sign Up from storyboard")
@@ -38,7 +38,9 @@ class SignUpContainer {
 
 extension SignUpContainer: SignUpNavigator {
     func goToSignIn(email: String, password: String) {
-        
+        let signInContainer = SignInContainer(appDependencyContainer: appDependencyContainer)
+        let signInVC = signInContainer.constructSignInViewController(email: email, password: password)
+        appDependencyContainer.navigationController.present(signInVC, animated: true, completion: nil)
     }
     
 }

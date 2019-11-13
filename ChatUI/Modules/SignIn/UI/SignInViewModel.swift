@@ -1,21 +1,17 @@
 //
-//  SignUpViewModel.swift
+//  SignInViewModel.swift
 //  ChatUI
 //
-//  Created by Ryan on 11/12/19.
+//  Created by Ryan on 11/13/19.
 //  Copyright © 2019 Daylighter. All rights reserved.
 //
 
-import Foundation
 import RxSwift
-import RxCocoa
 
-class SignUpViewModel {
+class SignInViewModel {
     // MARK: Public properties
     let emailInput = BehaviorSubject<String>(value: "")
     let passwordInput = BehaviorSubject<String>(value: "")
-    let nameInput = BehaviorSubject<String>(value: "")
-    let mobileNumberInput = BehaviorSubject<String>(value: "")
 
     var messages: Observable<String> {
       return messagesSubject.asObservable()
@@ -24,51 +20,42 @@ class SignUpViewModel {
       return activityIndicatorAnimatingSubject.asObservable()
     }
     // MARK: Private properties
-    private let signUpInteractor: SignUpInteractor
-    private let signUpNavigator: SignUpNavigator
+    private let signInInteractor: SignInInteractor
     private let validator: Validator
     private let messagesSubject = PublishSubject<String>()
     private let activityIndicatorAnimatingSubject = BehaviorSubject<Bool>(value: false)
     private let disposeBag = DisposeBag()
     
-    init(signUpInteractor: SignUpInteractor,
-         signUpNavigator: SignUpNavigator,
-         validator: Validator) {
-        self.signUpInteractor = signUpInteractor
-        self.signUpNavigator = signUpNavigator
+    init(signInInteractor: SignInInteractor, validator: Validator) {
+        self.signInInteractor = signInInteractor
         self.validator = validator
     }
     
-    @objc func SignUp() {
+    @objc func signIn() {
         do {
             let email = try emailInput.value()
             let password = try passwordInput.value()
-            let name = try nameInput.value()
-            let mobileNumber = try mobileNumberInput.value()
             
-            guard validateFields(email: email, password: password, name: name, mobileNumber: mobileNumber) else { return }
+            guard validateFields(email: email, password: password) else { return }
             
             activityIndicatorAnimatingSubject.onNext(true)
-            signUpInteractor
-                .signUp(email: email, password: password, name: name, mobileNumber: mobileNumber)
+            signInInteractor
+                .signIn(email: email, password: password)
                 .subscribe(
                     onCompleted: { [weak self] in
                         guard let self = self else { return }
-                        self.messagesSubject.onNext("Signed up successfully.")
+                        self.messagesSubject.onNext("Signed in successfully.")
                         self.activityIndicatorAnimatingSubject.onNext(false)
                     },
-                    onError: (handleError(error:))
-                )
+                    onError: handleError(error:))
                 .disposed(by: disposeBag)
         } catch {
-            fatalError("Error accessing field values from sign up screen.")
+            fatalError("Error accessing field values from sign in screen.")
         }
     }
     
     func didShowSuccessMessage() {
-        guard let email = try? emailInput.value(),
-            let password = try? passwordInput.value() else { return }
-        signUpNavigator.goToSignIn(email: email, password: password)
+        
     }
     
     private func handleError(error: Error) {
@@ -76,17 +63,16 @@ class SignUpViewModel {
         messagesSubject.onError(error)
     }
     
-    private func validateFields(email: String, password: String, name: String, mobileNumber: String) -> Bool {
+    private func validateFields(email: String, password: String) -> Bool {
         var isValid = true
         do {
             try validator.emailValidator.validated(email)
             try validator.passwordValidator.validated(password)
-            try validator.requiredFieldValidator(fieldName: "Name").validated(name)
-            try validator.phoneValidator.validated(mobileNumber)
         } catch {
             messagesSubject.onError(error)
             isValid = false
         }
         return isValid
     }
+    
 }

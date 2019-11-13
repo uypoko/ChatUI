@@ -35,12 +35,14 @@ class WelcomeContainer {
 
 extension WelcomeContainer: WelcomeNavigator {
     func goToSignIn() {
-        
+        let signInContainer = SignInContainer(appDependencyContainer: appDependencyContainer)
+        let signInVC = signInContainer.constructSignInViewController()
+        appDependencyContainer.navigationController.pushViewController(signInVC, animated: true)
     }
     
     func goToSignUp() {
         let signUpContainer = SignUpContainer(appDependencyContainer: appDependencyContainer)
-        let signUpVC = signUpContainer.makeSignUpViewController()
+        let signUpVC = signUpContainer.constructSignUpViewController()
         appDependencyContainer.navigationController.pushViewController(signUpVC, animated: true)
     }
     

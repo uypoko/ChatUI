@@ -36,6 +36,11 @@
 		9446C4602372B93F00D3F220 /* ListMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C45F2372B93F00D3F220 /* ListMessageCell.swift */; };
 		9446C4622372CBB600D3F220 /* ListFriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C4612372CBB600D3F220 /* ListFriendsCell.swift */; };
 		9446C4642372D44800D3F220 /* ListFriendsFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C4632372D44800D3F220 /* ListFriendsFlowLayout.swift */; };
+		949DC166237C148700ED7EC1 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DC165237C148700ED7EC1 /* SignInInteractor.swift */; };
+		949DC16A237C14AA00ED7EC1 /* SignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DC169237C14AA00ED7EC1 /* SignInRepository.swift */; };
+		949DC16C237C187D00ED7EC1 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DC16B237C187D00ED7EC1 /* SignInViewModel.swift */; };
+		949DC16F237C1CFD00ED7EC1 /* SignInContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DC16E237C1CFD00ED7EC1 /* SignInContainer.swift */; };
+		949DC171237C1D6F00ED7EC1 /* SignInRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949DC170237C1D6F00ED7EC1 /* SignInRepositoryImp.swift */; };
 		94C1B34123799BAC006AFA55 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B34023799BAC006AFA55 /* UIViewController+Extensions.swift */; };
 		94C1B3502379A1FF006AFA55 /* RegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B34F2379A1FF006AFA55 /* RegisterInfo.swift */; };
 		94C1B3532379A293006AFA55 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B3522379A293006AFA55 /* SignUpRepository.swift */; };
@@ -85,6 +90,11 @@
 		9446C45F2372B93F00D3F220 /* ListMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMessageCell.swift; sourceTree = "<group>"; };
 		9446C4612372CBB600D3F220 /* ListFriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendsCell.swift; sourceTree = "<group>"; };
 		9446C4632372D44800D3F220 /* ListFriendsFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendsFlowLayout.swift; sourceTree = "<group>"; };
+		949DC165237C148700ED7EC1 /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		949DC169237C14AA00ED7EC1 /* SignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepository.swift; sourceTree = "<group>"; };
+		949DC16B237C187D00ED7EC1 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		949DC16E237C1CFD00ED7EC1 /* SignInContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInContainer.swift; sourceTree = "<group>"; };
+		949DC170237C1D6F00ED7EC1 /* SignInRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRepositoryImp.swift; sourceTree = "<group>"; };
 		94C1B34023799BAC006AFA55 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		94C1B34F2379A1FF006AFA55 /* RegisterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInfo.swift; sourceTree = "<group>"; };
 		94C1B3522379A293006AFA55 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
@@ -389,6 +399,30 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		949DC167237C148D00ED7EC1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				949DC165237C148700ED7EC1 /* SignInInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		949DC168237C149800ED7EC1 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				949DC169237C14AA00ED7EC1 /* SignInRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		949DC16D237C1CEE00ED7EC1 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				949DC16E237C1CFD00ED7EC1 /* SignInContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		94C1B33F23799B97006AFA55 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				94D2E188237AEAC2004F00CA /* SignIn.storyboard */,
+				949DC16D237C1CEE00ED7EC1 /* DI */,
 				94C1B34623799FCC006AFA55 /* UI */,
 				94C1B34823799FD6006AFA55 /* Data */,
 				94C1B34723799FD1006AFA55 /* Domain */,
@@ -412,6 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				94D2E18A237AEB0F004F00CA /* SignInViewController.swift */,
+				949DC16B237C187D00ED7EC1 /* SignInViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -419,6 +455,8 @@
 		94C1B34723799FD1006AFA55 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				949DC168237C149800ED7EC1 /* Repository */,
+				949DC167237C148D00ED7EC1 /* Interactor */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -426,6 +464,7 @@
 		94C1B34823799FD6006AFA55 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				949DC170237C1D6F00ED7EC1 /* SignInRepositoryImp.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -649,6 +688,7 @@
 				94264D7523755B0800D5397D /* AppDependencyContainer.swift in Sources */,
 				94D2E184237AD3A1004F00CA /* WelcomeNavigator.swift in Sources */,
 				94D2E182237ACD94004F00CA /* SignUpNavigator.swift in Sources */,
+				949DC16C237C187D00ED7EC1 /* SignInViewModel.swift in Sources */,
 				94264D8823755D5C00D5397D /* UserSession.swift in Sources */,
 				94D2E17D237AB2B5004F00CA /* SignUpContainer.swift in Sources */,
 				94264D8123755CA500D5397D /* LocalRepositoryImp.swift in Sources */,
@@ -665,10 +705,14 @@
 				941A3B6E2377E6EB0042BE30 /* UserManagementViewController.swift in Sources */,
 				94D2E18B237AEB0F004F00CA /* SignInViewController.swift in Sources */,
 				9446C44A2372B6A400D3F220 /* AppDelegate.swift in Sources */,
+				949DC166237C148700ED7EC1 /* SignInInteractor.swift in Sources */,
 				941A3B7F2377F37B0042BE30 /* WelcomeRemoteRepository.swift in Sources */,
+				949DC171237C1D6F00ED7EC1 /* SignInRepositoryImp.swift in Sources */,
 				94264D7823755B9C00D5397D /* ListMessagesViewModel.swift in Sources */,
+				949DC16A237C14AA00ED7EC1 /* SignInRepository.swift in Sources */,
 				941A3B7A2377EE0E0042BE30 /* WelcomeContainer.swift in Sources */,
 				94264D8523755D1700D5397D /* LocalRepository.swift in Sources */,
+				949DC16F237C1CFD00ED7EC1 /* SignInContainer.swift in Sources */,
 				9446C44C2372B6A400D3F220 /* SceneDelegate.swift in Sources */,
 				941A3B692377E5830042BE30 /* ListMessagesContainer.swift in Sources */,
 				94C1B3572379A9B4006AFA55 /* SignUpInteractor.swift in Sources */,
@@ -818,7 +862,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25YD4528FX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ChatUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -837,7 +881,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25YD4528FX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ChatUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

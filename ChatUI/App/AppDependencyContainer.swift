@@ -19,20 +19,20 @@ class AppDependencyContainer {
     var auth: Auth { Auth.auth() }
     let navigationController = UINavigationController()
     let validator = Validator()
+    let localRepository = LocalRepositoryImp()
     
     init() {
     }
     
     private let disposeBag = DisposeBag()
     
-    func makeRootViewController() -> UIViewController {
+    func constructRootViewController() -> UIViewController {
         var rootViewController: UIViewController = WelcomeContainer(appDependencyContainer: self).makeWelcomeViewController()
         
-        let localRepository = LocalRepositoryImp()
-        localRepository.readUserSession()
+        localRepository.fetchUserSession()
             .subscribe(onSuccess: { userSession in
                 self.userSession = userSession
-                rootViewController = self.makeSignedInTabBarViewController()
+                rootViewController = self.constructSignedInTabBarViewController()
             })
             .disposed(by: disposeBag)
         
@@ -40,7 +40,7 @@ class AppDependencyContainer {
         return navigationController
     }
     
-    func makeSignedInTabBarViewController() -> UITabBarController {
+    func constructSignedInTabBarViewController() -> UITabBarController {
         let tabBarController = UITabBarController()
         return tabBarController
     }

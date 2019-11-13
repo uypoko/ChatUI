@@ -8,8 +8,12 @@
 
 import Foundation
 
-struct ValidationError: Error {
+struct ValidationError: Error, LocalizedError {
     var message: String
+    
+    var errorDescription: String? {
+        return message
+    }
 }
 
 protocol ValidatorConvertible {

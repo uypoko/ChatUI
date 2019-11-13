@@ -22,15 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScnene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScnene)
         
-        let navigationController = UINavigationController()
-        window?.rootViewController = navigationController
-        
         guard let appDelegate = appDelegate else { return }
         let appDependencyContainer = appDelegate.appDependencyContainer
-        appDependencyContainer.navigationController = navigationController
+        window?.rootViewController = appDependencyContainer.makeRootViewController()
         
-        let mainViewController = appDependencyContainer.makeMainViewController()
-        navigationController.setViewControllers([mainViewController], animated: true)
         window?.makeKeyAndVisible()
     }
 

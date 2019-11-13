@@ -9,9 +9,9 @@
 import Foundation
 import RxSwift
 
-struct MainLocalRepositoryImp: MainLocalRepository {
+struct LocalRepositoryImp: LocalRepository {
     
-    var docsURL: URL? {
+    private var docsURL: URL? {
       return FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory,
         in: FileManager.SearchPathDomainMask.allDomainsMask).first?.appendingPathComponent("user_session.json")
     }
@@ -39,6 +39,14 @@ struct MainLocalRepositoryImp: MainLocalRepository {
             
             return disposables
         })
+    }
+    
+    func persistUserSession(userSession: UserSession) {
+        guard let url = self.docsURL else { return }
+        let jsonEncoder = JSONEncoder()
+        if let data = try? jsonEncoder.encode(userSession) {
+            try? data.write(to: url)
+        }
     }
     
 }

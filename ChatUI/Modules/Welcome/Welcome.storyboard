@@ -7,16 +7,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="FE3-JC-3ro">
             <objects>
-                <viewController id="eq9-Xq-oJI" sceneMemberID="viewController">
+                <viewController id="eq9-Xq-oJI" customClass="WelcomeViewController" customModule="ChatUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sD9-bn-UPr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Kqh-Aa-A6d">
-                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <rect key="frame" x="8" y="398" width="398" height="100"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2vC-IW-NTd">
                                 <rect key="frame" x="41.5" y="817" width="331" height="65"/>
@@ -38,17 +38,29 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pPT-tY-0Ra">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.62546764964788737" green="0.87046656853233706" blue="0.8729093309859155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Kqh-Aa-A6d" firstAttribute="leading" secondItem="u1s-eU-ESh" secondAttribute="leading" constant="8" id="68p-NN-Gq3"/>
+                            <constraint firstItem="u1s-eU-ESh" firstAttribute="trailing" secondItem="Kqh-Aa-A6d" secondAttribute="trailing" constant="8" id="P9l-QV-KB2"/>
+                            <constraint firstItem="pPT-tY-0Ra" firstAttribute="centerY" secondItem="sD9-bn-UPr" secondAttribute="centerY" id="VkV-Pl-PIE"/>
                             <constraint firstItem="2vC-IW-NTd" firstAttribute="width" secondItem="sD9-bn-UPr" secondAttribute="width" multiplier="0.8" id="aSU-hu-taY"/>
-                            <constraint firstItem="Kqh-Aa-A6d" firstAttribute="centerX" secondItem="sD9-bn-UPr" secondAttribute="centerX" id="cz8-gg-HtG"/>
                             <constraint firstItem="Kqh-Aa-A6d" firstAttribute="centerY" secondItem="sD9-bn-UPr" secondAttribute="centerY" id="h0E-vE-W7f"/>
                             <constraint firstItem="2vC-IW-NTd" firstAttribute="bottom" secondItem="u1s-eU-ESh" secondAttribute="bottom" constant="20" id="j7z-4G-boV"/>
+                            <constraint firstItem="pPT-tY-0Ra" firstAttribute="centerX" secondItem="sD9-bn-UPr" secondAttribute="centerX" id="q5w-a7-N10"/>
                             <constraint firstItem="2vC-IW-NTd" firstAttribute="centerX" secondItem="sD9-bn-UPr" secondAttribute="centerX" id="vqC-ea-9HW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u1s-eU-ESh"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="pPT-tY-0Ra" id="AIU-ht-AZG"/>
+                        <outlet property="logoImageView" destination="Kqh-Aa-A6d" id="FGW-5Y-wNJ"/>
+                        <outlet property="signInButton" destination="cHx-pR-oQw" id="9MG-l3-YsL"/>
+                        <outlet property="signUpButton" destination="ggK-RU-JLU" id="JbD-AT-lfW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsj-fL-hnf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

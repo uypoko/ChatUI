@@ -6,6 +6,7 @@ target 'ChatUI' do
   use_frameworks!
 
   # Pods for ChatUI
+  pod 'PromiseKit', '~> 6.8'
   pod 'ReSwift', '5.0.0'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'

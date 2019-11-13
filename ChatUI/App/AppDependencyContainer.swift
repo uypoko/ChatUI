@@ -8,29 +8,40 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import Firebase
 
 class AppDependencyContainer {
-    var navigationController: UINavigationController?
+    // MARK: Long-lived dependencies
+    var userSession: UserSession?
+    var remoteDatabase: Firestore { Firestore.firestore() }
+    var remoteStorage: StorageReference { Storage.storage().reference() }
+    var auth: Auth { Auth.auth() }
+    let navigationController = UINavigationController()
+    let validator = Validator()
     
-    func makeMainViewController() -> MainViewController {
-        let mainLocalRepository = MainLocalRepositoryImp()
-        let readUserSession = ReadUserSession(mainLocalRepository: mainLocalRepository)
-        let mainViewModel = MainViewModel(readUserSession: readUserSession, mainNavigator: self)
-        let mainViewController = MainViewController(mainViewModel: mainViewModel)
-        return mainViewController
-    }
-}
-
-extension AppDependencyContainer: MainNavigator {
-    func navigateToWelcome() {
-        let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
-        let welcomeVC = storyboard.instantiateInitialViewController()
-        if let welcomeVC = welcomeVC {
-            navigationController?.present(welcomeVC, animated: true)
-        }
+    init() {
     }
     
-    func navigateToListMessages() {
-        print("navigateToListMessages")
+    private let disposeBag = DisposeBag()
+    
+    func makeRootViewController() -> UIViewController {
+        var rootViewController: UIViewController = WelcomeContainer(appDependencyContainer: self).makeWelcomeViewController()
+        
+        let localRepository = LocalRepositoryImp()
+        localRepository.readUserSession()
+            .subscribe(onSuccess: { userSession in
+                self.userSession = userSession
+                rootViewController = self.makeSignedInTabBarViewController()
+            })
+            .disposed(by: disposeBag)
+        
+        navigationController.addChild(rootViewController)
+        return navigationController
+    }
+    
+    func makeSignedInTabBarViewController() -> UITabBarController {
+        let tabBarController = UITabBarController()
+        return tabBarController
     }
 }

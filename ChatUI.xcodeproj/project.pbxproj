@@ -46,13 +46,17 @@
 		94C1B3552379A302006AFA55 /* SignUpRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B3542379A302006AFA55 /* SignUpRepositoryImp.swift */; };
 		94C1B3572379A9B4006AFA55 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B3562379A9B4006AFA55 /* SignUpInteractor.swift */; };
 		94CDE45E237D655F002FFD8C /* SignInNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CDE45D237D655F002FFD8C /* SignInNavigator.swift */; };
+		94CDE461237D92F8002FFD8C /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CDE460237D92F8002FFD8C /* EmailValidator.swift */; };
+		94CDE463237D9329002FFD8C /* PasswordValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CDE462237D9329002FFD8C /* PasswordValidator.swift */; };
+		94CDE465237D9359002FFD8C /* MobileNumberValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CDE464237D9359002FFD8C /* MobileNumberValidator.swift */; };
+		94CDE467237D937D002FFD8C /* RequiredFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CDE466237D937D002FFD8C /* RequiredFieldValidator.swift */; };
 		94D2E176237AB257004F00CA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E175237AB257004F00CA /* SignUpViewModel.swift */; };
 		94D2E178237AB26B004F00CA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E177237AB26B004F00CA /* SignUpViewController.swift */; };
 		94D2E17A237AB276004F00CA /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94D2E179237AB276004F00CA /* SignUp.storyboard */; };
 		94D2E17D237AB2B5004F00CA /* SignUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E17C237AB2B5004F00CA /* SignUpContainer.swift */; };
 		94D2E182237ACD94004F00CA /* SignUpNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E181237ACD94004F00CA /* SignUpNavigator.swift */; };
 		94D2E184237AD3A1004F00CA /* WelcomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E183237AD3A1004F00CA /* WelcomeNavigator.swift */; };
-		94D2E187237ADF54004F00CA /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E186237ADF54004F00CA /* Validator.swift */; };
+		94D2E187237ADF54004F00CA /* ValidatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E186237ADF54004F00CA /* ValidatorProvider.swift */; };
 		94D2E189237AEAC2004F00CA /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94D2E188237AEAC2004F00CA /* SignIn.storyboard */; };
 		94D2E18B237AEB0F004F00CA /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E18A237AEB0F004F00CA /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -100,13 +104,17 @@
 		94C1B3542379A302006AFA55 /* SignUpRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImp.swift; sourceTree = "<group>"; };
 		94C1B3562379A9B4006AFA55 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		94CDE45D237D655F002FFD8C /* SignInNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInNavigator.swift; sourceTree = "<group>"; };
+		94CDE460237D92F8002FFD8C /* EmailValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
+		94CDE462237D9329002FFD8C /* PasswordValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidator.swift; sourceTree = "<group>"; };
+		94CDE464237D9359002FFD8C /* MobileNumberValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNumberValidator.swift; sourceTree = "<group>"; };
+		94CDE466237D937D002FFD8C /* RequiredFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredFieldValidator.swift; sourceTree = "<group>"; };
 		94D2E175237AB257004F00CA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		94D2E177237AB26B004F00CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		94D2E179237AB276004F00CA /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		94D2E17C237AB2B5004F00CA /* SignUpContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContainer.swift; sourceTree = "<group>"; };
 		94D2E181237ACD94004F00CA /* SignUpNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNavigator.swift; sourceTree = "<group>"; };
 		94D2E183237AD3A1004F00CA /* WelcomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeNavigator.swift; sourceTree = "<group>"; };
-		94D2E186237ADF54004F00CA /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		94D2E186237ADF54004F00CA /* ValidatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorProvider.swift; sourceTree = "<group>"; };
 		94D2E188237AEAC2004F00CA /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		94D2E18A237AEB0F004F00CA /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B59D20652DB26F028ACF7724 /* Pods_ChatUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -533,6 +541,18 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		94CDE45F237D92DB002FFD8C /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				94D2E186237ADF54004F00CA /* ValidatorProvider.swift */,
+				94CDE460237D92F8002FFD8C /* EmailValidator.swift */,
+				94CDE462237D9329002FFD8C /* PasswordValidator.swift */,
+				94CDE464237D9359002FFD8C /* MobileNumberValidator.swift */,
+				94CDE466237D937D002FFD8C /* RequiredFieldValidator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
 		94D2E17B237AB2A4004F00CA /* DI */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,7 +564,7 @@
 		94D2E185237ADF36004F00CA /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				94D2E186237ADF54004F00CA /* Validator.swift */,
+				94CDE45F237D92DB002FFD8C /* Validator */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -687,6 +707,7 @@
 				94264D7523755B0800D5397D /* AppDependencyContainer.swift in Sources */,
 				94D2E184237AD3A1004F00CA /* WelcomeNavigator.swift in Sources */,
 				94D2E182237ACD94004F00CA /* SignUpNavigator.swift in Sources */,
+				94CDE465237D9359002FFD8C /* MobileNumberValidator.swift in Sources */,
 				949DC16C237C187D00ED7EC1 /* SignInViewModel.swift in Sources */,
 				94264D8823755D5C00D5397D /* UserSession.swift in Sources */,
 				94D2E17D237AB2B5004F00CA /* SignUpContainer.swift in Sources */,
@@ -694,7 +715,7 @@
 				941A3B782377ED270042BE30 /* WelcomeViewController.swift in Sources */,
 				941A3B872377F9720042BE30 /* LoadWelcomeLogo.swift in Sources */,
 				94264D8D2375601C00D5397D /* ReadUserSessionError.swift in Sources */,
-				94D2E187237ADF54004F00CA /* Validator.swift in Sources */,
+				94D2E187237ADF54004F00CA /* ValidatorProvider.swift in Sources */,
 				9446C4622372CBB600D3F220 /* ListFriendsCell.swift in Sources */,
 				9446C4602372B93F00D3F220 /* ListMessageCell.swift in Sources */,
 				941A3B842377F7EC0042BE30 /* WelcomeViewModel.swift in Sources */,
@@ -702,6 +723,7 @@
 				941A3B812377F3EB0042BE30 /* WelcomeRemoteRepositoryImp.swift in Sources */,
 				94C1B3502379A1FF006AFA55 /* RegisterInfo.swift in Sources */,
 				941A3B6E2377E6EB0042BE30 /* UserManagementViewController.swift in Sources */,
+				94CDE467237D937D002FFD8C /* RequiredFieldValidator.swift in Sources */,
 				94D2E18B237AEB0F004F00CA /* SignInViewController.swift in Sources */,
 				9446C44A2372B6A400D3F220 /* AppDelegate.swift in Sources */,
 				949DC166237C148700ED7EC1 /* SignInInteractor.swift in Sources */,
@@ -715,6 +737,8 @@
 				9446C44C2372B6A400D3F220 /* SceneDelegate.swift in Sources */,
 				941A3B692377E5830042BE30 /* ListMessagesContainer.swift in Sources */,
 				94C1B3572379A9B4006AFA55 /* SignUpInteractor.swift in Sources */,
+				94CDE463237D9329002FFD8C /* PasswordValidator.swift in Sources */,
+				94CDE461237D92F8002FFD8C /* EmailValidator.swift in Sources */,
 				94CDE45E237D655F002FFD8C /* SignInNavigator.swift in Sources */,
 				9446C4642372D44800D3F220 /* ListFriendsFlowLayout.swift in Sources */,
 			);

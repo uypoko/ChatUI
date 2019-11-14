@@ -28,7 +28,7 @@ class SignUpContainer {
         let viewModel = SignUpViewModel(
             signUpInteractor: signUpInteractor,
             signUpNavigator: self,
-            validator: appDependencyContainer.validator)
+            validator: appDependencyContainer.validatorProvider)
         viewController.viewModel = viewModel
         
         return viewController

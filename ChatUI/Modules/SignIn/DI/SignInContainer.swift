@@ -31,7 +31,7 @@ class SignInContainer {
             localRepository: appDependencyContainer.localRepository)
         let viewModel = SignInViewModel(
             signInInteractor: signInInteractor,
-            validator: appDependencyContainer.validator)
+            validator: appDependencyContainer.validatorProvider)
         
         signInViewController.viewModel = viewModel
         

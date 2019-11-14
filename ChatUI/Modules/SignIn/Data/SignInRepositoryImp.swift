@@ -25,7 +25,7 @@ struct SignInRepositoryImp: SignInRepository {
             auth.signIn(withEmail: email, password: password) { authData, error in
                 if let user = authData?.user {
                     
-                    Observable.combineLatest(
+                    Observable.zip(
                         self.getToken(user: user).asObservable(),
                         self.getUserInfo(uid: user.uid).asObservable())
                         .subscribe(

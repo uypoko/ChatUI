@@ -18,7 +18,7 @@ class AppDependencyContainer {
     var remoteStorage: StorageReference { Storage.storage().reference() }
     var auth: Auth { Auth.auth() }
     let navigationController = UINavigationController()
-    let validator = Validator()
+    let validatorProvider = ValidatorProvider()
     let localRepository = LocalRepositoryImp()
     
     private let disposeBag = DisposeBag()

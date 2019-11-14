@@ -26,17 +26,17 @@ class SignUpViewModel {
     // MARK: Private properties
     private let signUpInteractor: SignUpInteractor
     private let signUpNavigator: SignUpNavigator
-    private let validator: Validator
+    private let validatorProvider: ValidatorProvider
     private let messagesSubject = PublishSubject<Result<String, Error>>()
     private let activityIndicatorAnimatingSubject = BehaviorSubject<Bool>(value: false)
     private let disposeBag = DisposeBag()
     
     init(signUpInteractor: SignUpInteractor,
          signUpNavigator: SignUpNavigator,
-         validator: Validator) {
+         validator: ValidatorProvider) {
         self.signUpInteractor = signUpInteractor
         self.signUpNavigator = signUpNavigator
-        self.validator = validator
+        self.validatorProvider = validator
     }
     
     @objc func SignUp() {
@@ -79,10 +79,10 @@ class SignUpViewModel {
     private func validateFields(email: String, password: String, name: String, mobileNumber: String) -> Bool {
         var isValid = true
         do {
-            try validator.emailValidator.validated(email)
-            try validator.passwordValidator.validated(password)
-            try validator.requiredFieldValidator(fieldName: "Name").validated(name)
-            try validator.phoneValidator.validated(mobileNumber)
+            try validatorProvider.emailValidator.validated(email)
+            try validatorProvider.passwordValidator.validated(password)
+            try validatorProvider.requiredFieldValidator(fieldName: "Name").validated(name)
+            try validatorProvider.phoneValidator.validated(mobileNumber)
         } catch {
             messagesSubject.onNext(.failure(error))
             isValid = false

@@ -21,6 +21,7 @@ struct SignInInteractor {
     func signIn(email: String, password: String) -> Completable {
         return Completable.create { completable in
             let disposables = Disposables.create()
+            
             self.signInRepository
                 .signIn(email: email, password: password)
                 .done( { userSession in
@@ -28,6 +29,7 @@ struct SignInInteractor {
                     completable(.completed)
                 })
                 .catch { completable(.error($0)) }
+            
             return disposables
         }
     }

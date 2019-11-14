@@ -17,7 +17,7 @@ class SignUpViewModel {
     let nameInput = BehaviorSubject<String>(value: "")
     let mobileNumberInput = BehaviorSubject<String>(value: "")
 
-    var messages: Observable<String> {
+    var messages: Observable<Result<String, Error>> {
       return messagesSubject.asObservable()
     }
     var activityIndicatorAnimating: Observable<Bool> {
@@ -27,7 +27,7 @@ class SignUpViewModel {
     private let signUpInteractor: SignUpInteractor
     private let signUpNavigator: SignUpNavigator
     private let validator: Validator
-    private let messagesSubject = PublishSubject<String>()
+    private let messagesSubject = PublishSubject<Result<String, Error>>()
     private let activityIndicatorAnimatingSubject = BehaviorSubject<Bool>(value: false)
     private let disposeBag = DisposeBag()
     
@@ -54,7 +54,7 @@ class SignUpViewModel {
                 .subscribe(
                     onCompleted: { [weak self] in
                         guard let self = self else { return }
-                        self.messagesSubject.onNext("Signed up successfully.")
+                        self.messagesSubject.onNext(.success("Signed up successfully."))
                         self.activityIndicatorAnimatingSubject.onNext(false)
                     },
                     onError: (handleError(error:))
@@ -73,7 +73,7 @@ class SignUpViewModel {
     
     private func handleError(error: Error) {
         activityIndicatorAnimatingSubject.onNext(false)
-        messagesSubject.onError(error)
+        messagesSubject.onNext(.failure(error))
     }
     
     private func validateFields(email: String, password: String, name: String, mobileNumber: String) -> Bool {
@@ -84,7 +84,7 @@ class SignUpViewModel {
             try validator.requiredFieldValidator(fieldName: "Name").validated(name)
             try validator.phoneValidator.validated(mobileNumber)
         } catch {
-            messagesSubject.onError(error)
+            messagesSubject.onNext(.failure(error))
             isValid = false
         }
         return isValid

@@ -27,7 +27,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindFieldsToViewModel()
-        observeErrorMessages()
+        observeMessages()
         observeStateChanges()
         
         guard let viewModel = viewModel else { return }
@@ -44,20 +44,22 @@ class SignUpViewController: UIViewController {
         removeObservers()
     }
     
-    private func observeErrorMessages() {
+    private func observeMessages() {
         guard let viewModel = viewModel else { return }
         
         viewModel.messages
             .observeOn(MainScheduler.instance)
             .subscribe(
-                onNext: { [weak self] message in
+                onNext: { [weak self] result in
                     guard let self = self else { return }
-                    self.showAlert(
-                        message: message,
-                        completion: { _ in self.viewModel?.didShowSuccessMessage() })
-                },
-                onError: { [weak self] error in
-                    self?.showAlert(message: error.localizedDescription, completion: nil)
+                    switch result {
+                    case .success(let message):
+                        self.showAlert(
+                            message: message,
+                            completion: { _ in self.viewModel?.didShowSuccessMessage() })
+                    case .failure(let error):
+                        self.showAlert(message: error.localizedDescription, completion: nil)
+                    }
                 }
             )
             .disposed(by: disposeBag)

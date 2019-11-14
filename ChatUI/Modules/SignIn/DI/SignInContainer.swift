@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import RxSwift
 
 class SignInContainer {
     private let appDependencyContainer: AppDependencyContainer
+    private let disposeBag = DisposeBag()
     
     init(appDependencyContainer: AppDependencyContainer) {
         self.appDependencyContainer = appDependencyContainer
@@ -41,5 +43,17 @@ class SignInContainer {
         signInViewController.initialEmail = email
         signInViewController.initialPassword = password
         return signInViewController
+    }
+}
+
+extension SignInContainer: SignInNavigator {
+    func goToHome() {
+        appDependencyContainer
+            .loadUserSession()
+            .subscribe(onCompleted: {
+                // navigate to home
+            })
+            .disposed(by: disposeBag)
+        
     }
 }

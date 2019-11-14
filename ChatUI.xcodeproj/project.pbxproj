@@ -29,7 +29,6 @@
 		9446C44A2372B6A400D3F220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C4492372B6A400D3F220 /* AppDelegate.swift */; };
 		9446C44C2372B6A400D3F220 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C44B2372B6A400D3F220 /* SceneDelegate.swift */; };
 		9446C44E2372B6A400D3F220 /* ListMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C44D2372B6A400D3F220 /* ListMessagesViewController.swift */; };
-		9446C4502372B6A400D3F220 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9446C44F2372B6A400D3F220 /* SecondViewController.swift */; };
 		9446C4532372B6A400D3F220 /* ListMessages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9446C4512372B6A400D3F220 /* ListMessages.storyboard */; };
 		9446C4552372B6A600D3F220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9446C4542372B6A600D3F220 /* Assets.xcassets */; };
 		9446C4582372B6A600D3F220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9446C4562372B6A600D3F220 /* LaunchScreen.storyboard */; };
@@ -46,6 +45,7 @@
 		94C1B3532379A293006AFA55 /* SignUpRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B3522379A293006AFA55 /* SignUpRepository.swift */; };
 		94C1B3552379A302006AFA55 /* SignUpRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B3542379A302006AFA55 /* SignUpRepositoryImp.swift */; };
 		94C1B3572379A9B4006AFA55 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C1B3562379A9B4006AFA55 /* SignUpInteractor.swift */; };
+		94CDE45E237D655F002FFD8C /* SignInNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CDE45D237D655F002FFD8C /* SignInNavigator.swift */; };
 		94D2E176237AB257004F00CA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E175237AB257004F00CA /* SignUpViewModel.swift */; };
 		94D2E178237AB26B004F00CA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2E177237AB26B004F00CA /* SignUpViewController.swift */; };
 		94D2E17A237AB276004F00CA /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94D2E179237AB276004F00CA /* SignUp.storyboard */; };
@@ -82,7 +82,6 @@
 		9446C4492372B6A400D3F220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9446C44B2372B6A400D3F220 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9446C44D2372B6A400D3F220 /* ListMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMessagesViewController.swift; sourceTree = "<group>"; };
-		9446C44F2372B6A400D3F220 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9446C4522372B6A400D3F220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ListMessages.storyboard; sourceTree = "<group>"; };
 		9446C4542372B6A600D3F220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9446C4572372B6A600D3F220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		94C1B3522379A293006AFA55 /* SignUpRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepository.swift; sourceTree = "<group>"; };
 		94C1B3542379A302006AFA55 /* SignUpRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRepositoryImp.swift; sourceTree = "<group>"; };
 		94C1B3562379A9B4006AFA55 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		94CDE45D237D655F002FFD8C /* SignInNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInNavigator.swift; sourceTree = "<group>"; };
 		94D2E175237AB257004F00CA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		94D2E177237AB26B004F00CA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		94D2E179237AB276004F00CA /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -358,7 +358,6 @@
 				94264D7623755B1900D5397D /* Assets */,
 				94264D7323755AE600D5397D /* App */,
 				9446C4652372DCC400D3F220 /* Modules */,
-				9446C44F2372B6A400D3F220 /* SecondViewController.swift */,
 			);
 			path = ChatUI;
 			sourceTree = "<group>";
@@ -448,6 +447,7 @@
 			children = (
 				94D2E18A237AEB0F004F00CA /* SignInViewController.swift */,
 				949DC16B237C187D00ED7EC1 /* SignInViewModel.swift */,
+				94CDE45D237D655F002FFD8C /* SignInNavigator.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -502,8 +502,8 @@
 		94C1B34C2379A03E006AFA55 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				94D2E175237AB257004F00CA /* SignUpViewModel.swift */,
 				94D2E177237AB26B004F00CA /* SignUpViewController.swift */,
+				94D2E175237AB257004F00CA /* SignUpViewModel.swift */,
 				94D2E181237ACD94004F00CA /* SignUpNavigator.swift */,
 			);
 			path = UI;
@@ -681,7 +681,6 @@
 				94C1B3552379A302006AFA55 /* SignUpRepositoryImp.swift in Sources */,
 				94C1B34123799BAC006AFA55 /* UIViewController+Extensions.swift in Sources */,
 				94C1B3532379A293006AFA55 /* SignUpRepository.swift in Sources */,
-				9446C4502372B6A400D3F220 /* SecondViewController.swift in Sources */,
 				94264DA423757E6D00D5397D /* NiblessViewController.swift in Sources */,
 				9446C44E2372B6A400D3F220 /* ListMessagesViewController.swift in Sources */,
 				94D2E176237AB257004F00CA /* SignUpViewModel.swift in Sources */,
@@ -716,6 +715,7 @@
 				9446C44C2372B6A400D3F220 /* SceneDelegate.swift in Sources */,
 				941A3B692377E5830042BE30 /* ListMessagesContainer.swift in Sources */,
 				94C1B3572379A9B4006AFA55 /* SignUpInteractor.swift in Sources */,
+				94CDE45E237D655F002FFD8C /* SignInNavigator.swift in Sources */,
 				9446C4642372D44800D3F220 /* ListFriendsFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

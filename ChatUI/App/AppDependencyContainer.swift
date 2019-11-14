@@ -21,18 +21,14 @@ class AppDependencyContainer {
     let validator = Validator()
     let localRepository = LocalRepositoryImp()
     
-    init() {
-    }
-    
     private let disposeBag = DisposeBag()
     
     func constructRootViewController() -> UIViewController {
         var rootViewController: UIViewController = WelcomeContainer(appDependencyContainer: self).makeWelcomeViewController()
         
-        localRepository.fetchUserSession()
-            .subscribe(onSuccess: { userSession in
-                self.userSession = userSession
-                rootViewController = self.constructSignedInTabBarViewController()
+        loadUserSession()
+            .subscribe(onCompleted: {
+                //rootViewController = self.constructSignedInTabBarViewController()
             })
             .disposed(by: disposeBag)
         
@@ -43,5 +39,23 @@ class AppDependencyContainer {
     func constructSignedInTabBarViewController() -> UITabBarController {
         let tabBarController = UITabBarController()
         return tabBarController
+    }
+    
+    func loadUserSession() -> Completable {
+        return Completable.create(subscribe: { completable in
+            let disposables = Disposables.create()
+            
+            self.localRepository.fetchUserSession()
+                .subscribe(
+                    onSuccess: { userSession in
+                        self.userSession = userSession
+                        completable(.completed)
+                    },
+                    onError: { completable(.error($0)) }
+                    )
+                .disposed(by: self.disposeBag)
+            
+            return disposables
+        })
     }
 }

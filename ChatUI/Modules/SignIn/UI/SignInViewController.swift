@@ -30,13 +30,15 @@ class SignInViewController: UIViewController {
         observeErrorMessages()
         observeStateChanges()
         
+        guard let viewModel = viewModel else { return }
+        signInButton.addTarget(viewModel, action: #selector(viewModel.signIn), for: .touchUpInside)
+        
         if let initialEmail = initialEmail, let initialPassword = initialPassword {
             emailField.text = initialEmail
             passwordField.text = initialPassword
+            viewModel.emailInput.onNext(initialEmail)
+            viewModel.passwordInput.onNext(initialPassword)
         }
-        
-        guard let viewModel = viewModel else { return }
-        signInButton.addTarget(viewModel, action: #selector(viewModel.signIn), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,14 +57,16 @@ class SignInViewController: UIViewController {
         viewModel.messages
             .observeOn(MainScheduler.instance)
             .subscribe(
-                onNext: { [weak self] message in
+                onNext: { [weak self] result in
                     guard let self = self else { return }
-                    self.showAlert(
-                        message: message,
-                        completion: { _ in self.viewModel?.didShowSuccessMessage() })
-                },
-                onError: { [weak self] error in
-                    self?.showAlert(message: error.localizedDescription, completion: nil)
+                    switch result {
+                    case .success(let message):
+                        self.showAlert(
+                            message: message,
+                            completion: { _ in self.viewModel?.didShowSuccessMessage() })
+                    case .failure(let error):
+                        self.showAlert(message: error.localizedDescription, completion: nil)
+                    }
                 }
             )
             .disposed(by: disposeBag)

@@ -13,7 +13,7 @@ class SignInViewModel {
     let emailInput = BehaviorSubject<String>(value: "")
     let passwordInput = BehaviorSubject<String>(value: "")
 
-    var messages: Observable<String> {
+    var messages: Observable<Result<String, Error>> {
       return messagesSubject.asObservable()
     }
     var activityIndicatorAnimating: Observable<Bool> {
@@ -22,7 +22,7 @@ class SignInViewModel {
     // MARK: Private properties
     private let signInInteractor: SignInInteractor
     private let validator: Validator
-    private let messagesSubject = PublishSubject<String>()
+    private let messagesSubject = PublishSubject<Result<String, Error>>()
     private let activityIndicatorAnimatingSubject = BehaviorSubject<Bool>(value: false)
     private let disposeBag = DisposeBag()
     
@@ -44,7 +44,7 @@ class SignInViewModel {
                 .subscribe(
                     onCompleted: { [weak self] in
                         guard let self = self else { return }
-                        self.messagesSubject.onNext("Signed in successfully.")
+                        self.messagesSubject.onNext(.success("Signed in successfully."))
                         self.activityIndicatorAnimatingSubject.onNext(false)
                     },
                     onError: handleError(error:))
@@ -55,12 +55,12 @@ class SignInViewModel {
     }
     
     func didShowSuccessMessage() {
-        
+        print("Navigate to Home")
     }
     
     private func handleError(error: Error) {
         activityIndicatorAnimatingSubject.onNext(false)
-        messagesSubject.onError(error)
+        messagesSubject.onNext(.failure(error))
     }
     
     private func validateFields(email: String, password: String) -> Bool {
@@ -69,7 +69,7 @@ class SignInViewModel {
             try validator.emailValidator.validated(email)
             try validator.passwordValidator.validated(password)
         } catch {
-            messagesSubject.onError(error)
+            messagesSubject.onNext(.failure(error))
             isValid = false
         }
         return isValid

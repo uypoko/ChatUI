@@ -211,6 +211,7 @@
 		94264D7323755AE600D5397D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				94BC87B3237FCB5800740945 /* UI */,
 				94264D8223755CFA00D5397D /* Domain */,
 				94264D7F23755C7200D5397D /* Data */,
 				9446C4492372B6A400D3F220 /* AppDelegate.swift */,
@@ -223,6 +224,7 @@
 		94264D7623755B1900D5397D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9446C4592372B6A600D3F220 /* Info.plist */,
 				94264DA8237589B000D5397D /* GoogleService-Info.plist */,
 				9446C4542372B6A600D3F220 /* Assets.xcassets */,
 				9446C4562372B6A600D3F220 /* LaunchScreen.storyboard */,
@@ -362,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				94264D9D23757DD100D5397D /* Reusable */,
-				9446C4592372B6A600D3F220 /* Info.plist */,
 				94264D7623755B1900D5397D /* Assets */,
 				94264D7323755AE600D5397D /* App */,
 				9446C4652372DCC400D3F220 /* Modules */,
@@ -428,6 +429,14 @@
 				949DC16E237C1CFD00ED7EC1 /* SignInContainer.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		94BC87B3237FCB5800740945 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				94CDE45F237D92DB002FFD8C /* Validator */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		94C1B33F23799B97006AFA55 /* Extensions */ = {
@@ -564,7 +573,6 @@
 		94D2E185237ADF36004F00CA /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				94CDE45F237D92DB002FFD8C /* Validator */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -886,8 +894,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = ChatUI/Assets/Info.plist;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = ChatUI/Info.plist;
+				INFOPLIST_FILE = ChatUI/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -905,8 +914,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = ChatUI/Assets/Info.plist;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = ChatUI/Info.plist;
+				INFOPLIST_FILE = ChatUI/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

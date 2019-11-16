@@ -11,6 +11,7 @@ import RxSwift
 
 class SignInContainer {
     private let appDependencyContainer: AppDependencyContainer
+    private let validatorProvider = ValidatorProvider()
     private let disposeBag = DisposeBag()
     
     init(appDependencyContainer: AppDependencyContainer) {
@@ -31,7 +32,7 @@ class SignInContainer {
             localRepository: appDependencyContainer.localRepository)
         let viewModel = SignInViewModel(
             signInInteractor: signInInteractor,
-            validator: appDependencyContainer.validatorProvider)
+            validator: validatorProvider)
         
         signInViewController.viewModel = viewModel
         

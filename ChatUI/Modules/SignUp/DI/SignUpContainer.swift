@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpContainer {
     private let appDependencyContainer: AppDependencyContainer
+    private let validatorProvider = ValidatorProvider()
     
     init(appDependencyContainer: AppDependencyContainer) {
         self.appDependencyContainer = appDependencyContainer
@@ -28,7 +29,7 @@ class SignUpContainer {
         let viewModel = SignUpViewModel(
             signUpInteractor: signUpInteractor,
             signUpNavigator: self,
-            validator: appDependencyContainer.validatorProvider)
+            validator: validatorProvider)
         viewController.viewModel = viewModel
         
         return viewController

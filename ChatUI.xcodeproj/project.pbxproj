@@ -387,10 +387,10 @@
 			isa = PBXGroup;
 			children = (
 				9446C4512372B6A400D3F220 /* ListMessages.storyboard */,
+				9446C4672372DCF900D3F220 /* UI */,
 				941A3B672377E5680042BE30 /* DI */,
 				94264D7A23755BB300D5397D /* Domain */,
 				94264D7923755BA700D5397D /* Data */,
-				9446C4672372DCF900D3F220 /* UI */,
 			);
 			path = ListMessages;
 			sourceTree = "<group>";

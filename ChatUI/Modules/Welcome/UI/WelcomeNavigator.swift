@@ -6,7 +6,7 @@
 //  Copyright © 2019 Daylighter. All rights reserved.
 //
 
-protocol WelcomeNavigator {
+protocol WelcomeNavigator: class {
     func goToSignIn()
     func goToSignUp()
 }

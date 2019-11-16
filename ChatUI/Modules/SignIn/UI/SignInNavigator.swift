@@ -6,6 +6,6 @@
 //  Copyright © 2019 Daylighter. All rights reserved.
 //
 
-protocol SignInNavigator {
+protocol SignInNavigator: class {
     func goToHome()
 }

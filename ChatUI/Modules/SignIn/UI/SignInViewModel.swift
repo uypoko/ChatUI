@@ -21,7 +21,7 @@ class SignInViewModel {
     }
     // MARK: Private properties
     private let signInInteractor: SignInInteractor
-    private let validatorProvider: ValidatorProvider
+    private weak var validatorProvider: ValidatorProvider?
     private let messagesSubject = PublishSubject<Result<String, Error>>()
     private let activityIndicatorAnimatingSubject = BehaviorSubject<Bool>(value: false)
     private let disposeBag = DisposeBag()
@@ -65,6 +65,8 @@ class SignInViewModel {
     
     private func validateFields(email: String, password: String) -> Bool {
         var isValid = true
+        guard let validatorProvider = validatorProvider else { return false }
+        
         do {
             try validatorProvider.emailValidator.validated(email)
             try validatorProvider.passwordValidator.validated(password)

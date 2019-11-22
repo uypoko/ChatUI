@@ -1,5 +1,7 @@
 # ChatUI
 ChatUI is a note-taking application.
+## Current progress
+Data is synchronized with Realm database. However, it is not backed up to Firebase yet.
 ## Features
 * Display the list of notes
 * Add new notes
@@ -18,8 +20,9 @@ A container is responsible for injecting dependencies into every objects in the 
 * App Dependency Container: contains all long-lived dependencies. The container lives as long as the app lives, held by AppDelegate.
 * Module Dependency Container: contains module-level dependencies, takes App Dependency Container as init parameter. The container lives as long as the view controller lives, held by View Model through Navigation class-bound protocol.
 ## How the app works
-When an user lauch the app, it determines if the user is signed in. If not, the app transitions to the welcome screen. From the welcome screen, you can navigate to the sign-up and sign-in screens.
-<img src="https://raw.githubusercontent.com/uypoko/ChatUI/master/Screenshots/Welcome.png" width="40%">
+When an user lauch the app, it determines if the user is signed in. 
+If not, the app transitions to the welcome screen. From the welcome screen, you can navigate to the sign-up and sign-in screens.
+![Screenshot](Screenshots/Notes.gif)
 ## Built with
 * [RxSwift](https://github.com/ReactiveX/RxSwift/)
 * [Realm Database](https://github.com/realm/realm-cocoa/)

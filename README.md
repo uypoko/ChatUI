@@ -1,7 +1,9 @@
 # ChatUI
-ChatUI is a social media application in which users can browse new feed.
+ChatUI is a note-taking application.
 ## Features
-* Display the list of posts
+* Display the list of notes
+* Add new notes
+* Edit notes
 * Sign in an active account and sign up a new account
 * Upload users profile picture
 * Update users information

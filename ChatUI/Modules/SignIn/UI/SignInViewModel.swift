@@ -22,13 +22,17 @@ class SignInViewModel {
     // MARK: Private properties
     private let signInInteractor: SignInInteractor
     private weak var validatorProvider: ValidatorProvider?
+    private let navigator: SignInNavigator
     private let messagesSubject = PublishSubject<Result<String, Error>>()
     private let activityIndicatorAnimatingSubject = BehaviorSubject<Bool>(value: false)
     private let disposeBag = DisposeBag()
     
-    init(signInInteractor: SignInInteractor, validator: ValidatorProvider) {
+    init(signInInteractor: SignInInteractor,
+         validator: ValidatorProvider,
+         navigator: SignInNavigator) {
         self.signInInteractor = signInInteractor
         self.validatorProvider = validator
+        self.navigator = navigator
     }
     
     @objc func signIn() {

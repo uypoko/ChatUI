@@ -13,6 +13,8 @@ struct SignInInteractor {
     private let signInRepository: SignInRepository
     private let localRepository: LocalRepository
     
+    private let disposeBag = DisposeBag()
+    
     init(signInRepository: SignInRepository, localRepository: LocalRepository) {
         self.signInRepository = signInRepository
         self.localRepository = localRepository
@@ -24,11 +26,13 @@ struct SignInInteractor {
             
             self.signInRepository
                 .signIn(email: email, password: password)
-                .done( { userSession in
-                    self.localRepository.persistUserSession(userSession: userSession)
-                    completable(.completed)
-                })
-                .catch { completable(.error($0)) }
+                .subscribe(
+                    onSuccess: { userSession in
+                        self.localRepository.persistUserSession(userSession: userSession)
+                        completable(.completed)
+                    },
+                    onError: { completable(.error($0)) })
+                .disposed(by: self.disposeBag)
             
             return disposables
         }

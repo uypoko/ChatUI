@@ -7,5 +7,5 @@
 //
 
 protocol SignInNavigator: class {
-    func goToHome()
+    func goToListNotes()
 }

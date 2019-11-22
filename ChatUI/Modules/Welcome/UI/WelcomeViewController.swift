@@ -41,7 +41,7 @@ class WelcomeViewController: UIViewController {
                 onError: { [weak self] error in
                     guard let self = self else { return }
                     self.activityIndicator.removeFromSuperview()
-                    self.showAlert(message: error.localizedDescription, completion: nil)
+                    self.showMessageAlert(message: error.localizedDescription, completion: nil)
                 })
             .disposed(by: disposeBag)
     }

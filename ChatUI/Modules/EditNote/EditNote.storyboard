@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EDQ-CD-rOI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Note View Controller-->
+        <scene sceneID="pFK-nE-TAh">
+            <objects>
+                <viewController id="EDQ-CD-rOI" customClass="EditNoteViewController" customModule="ChatUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e6X-8A-0FG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-ji-aKY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="va2-R0-TQB">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OEM-3Z-rXB">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rld-O8-WyF">
+                                                <rect key="frame" x="0.0" y="34" width="414" height="832"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaeca</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzw-Zo-CFV">
+                                                <rect key="frame" x="0.0" y="866" width="414" height="30"/>
+                                                <state key="normal" title="Delete">
+                                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="896" id="Aoa-60-KuR"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="va2-R0-TQB" firstAttribute="top" secondItem="aiR-ji-aKY" secondAttribute="top" id="OhQ-9Z-5mE"/>
+                                    <constraint firstItem="va2-R0-TQB" firstAttribute="leading" secondItem="aiR-ji-aKY" secondAttribute="leading" id="huZ-L0-Pfe"/>
+                                    <constraint firstAttribute="trailing" secondItem="va2-R0-TQB" secondAttribute="trailing" id="pmD-hC-wQu"/>
+                                    <constraint firstAttribute="bottom" secondItem="va2-R0-TQB" secondAttribute="bottom" id="r1L-B0-5Q1"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="BWr-aA-B6Y"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ryu-cg-bH7"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AlP-bT-woy" firstAttribute="trailing" secondItem="aiR-ji-aKY" secondAttribute="trailing" id="33C-tn-YvN"/>
+                            <constraint firstItem="va2-R0-TQB" firstAttribute="width" secondItem="e6X-8A-0FG" secondAttribute="width" id="5HO-wU-cHI"/>
+                            <constraint firstItem="AlP-bT-woy" firstAttribute="bottom" secondItem="aiR-ji-aKY" secondAttribute="bottom" id="8gl-IV-4zh"/>
+                            <constraint firstItem="aiR-ji-aKY" firstAttribute="top" secondItem="AlP-bT-woy" secondAttribute="top" id="uKK-0y-49Y"/>
+                            <constraint firstItem="aiR-ji-aKY" firstAttribute="leading" secondItem="AlP-bT-woy" secondAttribute="leading" id="wdS-yU-29H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AlP-bT-woy"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentField" destination="rld-O8-WyF" id="00K-bj-5Nh"/>
+                        <outlet property="deleteButton" destination="tzw-Zo-CFV" id="59S-b5-Tvr"/>
+                        <outlet property="titleField" destination="OEM-3Z-rXB" id="o0T-Ok-yTY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RvL-lW-Xmm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="28.794642857142854"/>
+        </scene>
+    </scenes>
+</document>

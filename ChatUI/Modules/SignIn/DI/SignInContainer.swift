@@ -32,7 +32,8 @@ class SignInContainer {
             localRepository: appDependencyContainer.localRepository)
         let viewModel = SignInViewModel(
             signInInteractor: signInInteractor,
-            validator: validatorProvider)
+            validator: validatorProvider,
+            navigator: self)
         
         signInViewController.viewModel = viewModel
         
@@ -48,11 +49,17 @@ class SignInContainer {
 }
 
 extension SignInContainer: SignInNavigator {
-    func goToHome() {
+    func goToListNotes() {
+        let listNotesContainer = ListNotesContainer(appDependencyContainer: appDependencyContainer)
+        let listNotesVC = listNotesContainer.constructListNotesViewController()
+        
         appDependencyContainer
             .loadUserSession()
-            .subscribe(onCompleted: {
-                // navigate to home
+            .subscribe(onCompleted: { [weak self] in
+                guard let self = self else { return }
+                self.appDependencyContainer
+                    .navigationController
+                    .pushViewController(listNotesVC, animated: true)
             })
             .disposed(by: disposeBag)
         

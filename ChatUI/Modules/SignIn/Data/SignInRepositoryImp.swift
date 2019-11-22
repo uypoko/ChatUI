@@ -20,9 +20,11 @@ struct SignInRepositoryImp: SignInRepository {
         self.remoteDatabase = remoteDatabase
     }
     
-    func signIn(email: String, password: String) -> Promise<UserSession> {
-        return Promise { seal in
-            auth.signIn(withEmail: email, password: password) { authData, error in
+    func signIn(email: String, password: String) -> Single<UserSession> {
+        return Single.create(subscribe: { single in
+            let disposables = Disposables.create()
+            
+            self.auth.signIn(withEmail: email, password: password) { authData, error in
                 if let user = authData?.user {
                     
                     Observable.zip(
@@ -36,15 +38,17 @@ struct SignInRepositoryImp: SignInRepository {
                                     mobileNumber: userInfo.mobileNumber,
                                     token: token)
                                 
-                                seal.fulfill(userSession)
+                                single(.success(userSession))
                             },
-                            onError: { seal.reject($0) })
+                            onError: { single(.error($0)) })
                         .disposed(by: self.disposeBag)
                 } else if let error = error {
-                    seal.reject(error)
+                    single(.error(error))
                 }
             }
-        }
+            
+            return disposables
+        })
     }
     
     private func getToken(user: User) -> Single<String> {

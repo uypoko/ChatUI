@@ -13,12 +13,13 @@ import Firebase
 
 class AppDependencyContainer {
     // MARK: Long-lived dependencies
-    var userSession: UserSession?
     var remoteDatabase: Firestore { Firestore.firestore() }
     var remoteStorage: StorageReference { Storage.storage().reference() }
     var auth: Auth { Auth.auth() }
     let navigationController = UINavigationController()
     let localRepository = LocalRepositoryImp()
+    let userSessionSubject: BehaviorSubject<UserSession?> = BehaviorSubject<UserSession?>(value: nil)
+    let pathProvider = PathProvider()
     
     private let disposeBag = DisposeBag()
     
@@ -27,16 +28,21 @@ class AppDependencyContainer {
         
         loadUserSession()
             .subscribe(onCompleted: {
-                //rootViewController = self.constructSignedInTabBarViewController()
+                rootViewController = self.constructSignedInTabBarViewController()
             })
             .disposed(by: disposeBag)
         
-        navigationController.addChild(rootViewController)
+        navigationController.pushViewController(rootViewController, animated: false)
         return navigationController
     }
     
     func constructSignedInTabBarViewController() -> UITabBarController {
         let tabBarController = UITabBarController()
+        
+        let listNotesContainer = ListNotesContainer(appDependencyContainer: self)
+        let listNotesVC = listNotesContainer.constructListNotesViewController()
+        
+        tabBarController.viewControllers = [listNotesVC]
         return tabBarController
     }
     
@@ -47,11 +53,13 @@ class AppDependencyContainer {
             self.localRepository.fetchUserSession()
                 .subscribe(
                     onSuccess: { userSession in
-                        self.userSession = userSession
+                        self.userSessionSubject.onNext(userSession)
                         completable(.completed)
                     },
-                    onError: { completable(.error($0)) }
-                    )
+                    onError: { error in
+                        self.userSessionSubject.onNext(nil)
+                        completable(.error(error))
+                    })
                 .disposed(by: self.disposeBag)
             
             return disposables

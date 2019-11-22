@@ -41,7 +41,7 @@ class LocalRepositoryImp: LocalRepository {
         })
     }
     
-    func persistUserSession(userSession: UserSession) {
+    func persistUserSession(userSession: UserSession?) {
         guard let url = self.docsURL else { return }
         let jsonEncoder = JSONEncoder()
         if let data = try? jsonEncoder.encode(userSession) {

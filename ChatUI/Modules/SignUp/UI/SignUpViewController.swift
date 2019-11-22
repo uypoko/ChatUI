@@ -54,11 +54,11 @@ class SignUpViewController: UIViewController {
                     guard let self = self else { return }
                     switch result {
                     case .success(let message):
-                        self.showAlert(
+                        self.showMessageAlert(
                             message: message,
                             completion: { _ in self.viewModel?.didShowSuccessMessage() })
                     case .failure(let error):
-                        self.showAlert(message: error.localizedDescription, completion: nil)
+                        self.showMessageAlert(message: error.localizedDescription, completion: nil)
                     }
                 }
             )

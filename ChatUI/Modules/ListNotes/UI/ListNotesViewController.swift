@@ -36,7 +36,7 @@ class ListNotesViewController: UIViewController {
     
     private func setupTableView() {
         notesTableView.rowHeight = UITableView.automaticDimension
-        notesTableView.estimatedRowHeight = 400
+        notesTableView.estimatedRowHeight = 40
     }
     
     private func bindToTableView() {

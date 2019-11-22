@@ -50,18 +50,7 @@ class SignInContainer {
 
 extension SignInContainer: SignInNavigator {
     func goToListNotes() {
-        let listNotesContainer = ListNotesContainer(appDependencyContainer: appDependencyContainer)
-        let listNotesVC = listNotesContainer.constructListNotesViewController()
-        
-        appDependencyContainer
-            .loadUserSession()
-            .subscribe(onCompleted: { [weak self] in
-                guard let self = self else { return }
-                self.appDependencyContainer
-                    .navigationController
-                    .pushViewController(listNotesVC, animated: true)
-            })
-            .disposed(by: disposeBag)
+        appDependencyContainer.loadUserSession()
         
     }
 }

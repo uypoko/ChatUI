@@ -11,6 +11,5 @@ import Foundation
 enum ReadUserSessionError: Error {
     case urlNotFound
     case fileNotFound
-    case failToDecode
     
 }

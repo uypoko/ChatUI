@@ -42,14 +42,14 @@ class ListNotesContainer {
 
 extension ListNotesContainer: ListNotesNavigator {
     func goToWelcome() {
-        appDependencyContainer.navigationController.popViewController(animated: true)
+        appDependencyContainer.loadUserSession()
     }
     
     func goToEditNote(note: Note) {
         let editNoteContainer = EditNoteContainer(appDependencyContainer: appDependencyContainer)
         let editNoteVC = editNoteContainer.constructEditNoteViewController(note: note)
         appDependencyContainer
-            .navigationController
+            .rootNavigationController
             .pushViewController(editNoteVC, animated: true)
     }
     
@@ -57,7 +57,7 @@ extension ListNotesContainer: ListNotesNavigator {
         let addNoteContainer = AddNoteContainer(appDependencyContainer: appDependencyContainer)
         let addNoteVC = addNoteContainer.constructAddNoteViewController()
         appDependencyContainer
-            .navigationController
-            .pushViewController(addNoteVC, animated: true)
+            .rootNavigationController
+            .present(addNoteVC, animated: true, completion: nil)
     }
 }

@@ -24,9 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let appDelegate = appDelegate else { return }
         let appDependencyContainer = appDelegate.appDependencyContainer
-        window?.rootViewController = appDependencyContainer.constructRootViewController()
+        appDependencyContainer.window = window
         
-        window?.makeKeyAndVisible()
+        appDependencyContainer.loadUserSession()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

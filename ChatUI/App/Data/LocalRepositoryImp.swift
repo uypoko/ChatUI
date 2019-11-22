@@ -16,7 +16,7 @@ class LocalRepositoryImp: LocalRepository {
         in: FileManager.SearchPathDomainMask.allDomainsMask).first?.appendingPathComponent("user_session.json")
     }
     
-    func fetchUserSession() -> Single<UserSession> {
+    func fetchUserSession() -> Single<UserSession?> {
         return Single.create(subscribe: { single in
             let disposables = Disposables.create()
             
@@ -34,7 +34,7 @@ class LocalRepositoryImp: LocalRepository {
             if let userSession = try? jsonDecoder.decode(UserSession.self, from: sessionData)  {
                 single(.success(userSession))
             } else {
-                 single(.error(ReadUserSessionError.failToDecode))
+                 single(.success(nil))
             }
             
             return disposables

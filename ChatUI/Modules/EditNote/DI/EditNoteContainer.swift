@@ -41,7 +41,7 @@ class EditNoteContainer {
 
 extension EditNoteContainer: EditNoteNavigator {
     func popToListNotes() {
-        appDependencyContainer.navigationController.popViewController(animated: true)
+        appDependencyContainer.rootNavigationController.popViewController(animated: true)
     }
     
 }

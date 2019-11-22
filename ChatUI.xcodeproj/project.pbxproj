@@ -38,6 +38,12 @@
 		947F1A502383F64300B2BDFD /* ListNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F1A4F2383F64300B2BDFD /* ListNotesViewModel.swift */; };
 		947F1A55238403E100B2BDFD /* ListNotesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F1A54238403E100B2BDFD /* ListNotesContainer.swift */; };
 		947F1A572384076C00B2BDFD /* ListNotesNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947F1A562384076C00B2BDFD /* ListNotesNavigator.swift */; };
+		948BD84D2387C55E0054DCA9 /* UserManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BD84C2387C55E0054DCA9 /* UserManagementViewModel.swift */; };
+		948BD8512387C5920054DCA9 /* UserManagementRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BD8502387C5920054DCA9 /* UserManagementRepository.swift */; };
+		948BD8532387C5C20054DCA9 /* UserManagementRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BD8522387C5C20054DCA9 /* UserManagementRepositoryImp.swift */; };
+		948BD8562387C5FD0054DCA9 /* UserManagementContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BD8552387C5FD0054DCA9 /* UserManagementContainer.swift */; };
+		948BD85D2387CAF10054DCA9 /* SignOutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BD85C2387CAF10054DCA9 /* SignOutInteractor.swift */; };
+		948BD8652387CF8B0054DCA9 /* UserManagementNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948BD8642387CF8B0054DCA9 /* UserManagementNavigator.swift */; };
 		949A7F072386AE3D00309BBA /* AddNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 949A7F062386AE3D00309BBA /* AddNote.storyboard */; };
 		949A7F092386AE6D00309BBA /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A7F082386AE6D00309BBA /* AddNoteViewController.swift */; };
 		949A7F0B2386B51100309BBA /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A7F0A2386B51100309BBA /* AddNoteViewModel.swift */; };
@@ -116,6 +122,12 @@
 		947F1A4F2383F64300B2BDFD /* ListNotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesViewModel.swift; sourceTree = "<group>"; };
 		947F1A54238403E100B2BDFD /* ListNotesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesContainer.swift; sourceTree = "<group>"; };
 		947F1A562384076C00B2BDFD /* ListNotesNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNotesNavigator.swift; sourceTree = "<group>"; };
+		948BD84C2387C55E0054DCA9 /* UserManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementViewModel.swift; sourceTree = "<group>"; };
+		948BD8502387C5920054DCA9 /* UserManagementRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementRepository.swift; sourceTree = "<group>"; };
+		948BD8522387C5C20054DCA9 /* UserManagementRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementRepositoryImp.swift; sourceTree = "<group>"; };
+		948BD8552387C5FD0054DCA9 /* UserManagementContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementContainer.swift; sourceTree = "<group>"; };
+		948BD85C2387CAF10054DCA9 /* SignOutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutInteractor.swift; sourceTree = "<group>"; };
+		948BD8642387CF8B0054DCA9 /* UserManagementNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementNavigator.swift; sourceTree = "<group>"; };
 		949A7F062386AE3D00309BBA /* AddNote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNote.storyboard; sourceTree = "<group>"; };
 		949A7F082386AE6D00309BBA /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		949A7F0A2386B51100309BBA /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
@@ -174,7 +186,10 @@
 			isa = PBXGroup;
 			children = (
 				941A3B6B2377E6C20042BE30 /* UserManagement.storyboard */,
-				941A3B6D2377E6EB0042BE30 /* UserManagementViewController.swift */,
+				948BD8542387C5E90054DCA9 /* DI */,
+				948BD84B2387C53D0054DCA9 /* UI */,
+				948BD84E2387C5660054DCA9 /* Domain */,
+				948BD84F2387C56C0054DCA9 /* Data */,
 			);
 			path = UserManagement;
 			sourceTree = "<group>";
@@ -396,6 +411,57 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
+		948BD84B2387C53D0054DCA9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				941A3B6D2377E6EB0042BE30 /* UserManagementViewController.swift */,
+				948BD84C2387C55E0054DCA9 /* UserManagementViewModel.swift */,
+				948BD8642387CF8B0054DCA9 /* UserManagementNavigator.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		948BD84E2387C5660054DCA9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				948BD85B2387CADD0054DCA9 /* Interactor */,
+				948BD85A2387CAD40054DCA9 /* Repository */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		948BD84F2387C56C0054DCA9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				948BD8522387C5C20054DCA9 /* UserManagementRepositoryImp.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		948BD8542387C5E90054DCA9 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				948BD8552387C5FD0054DCA9 /* UserManagementContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		948BD85A2387CAD40054DCA9 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				948BD8502387C5920054DCA9 /* UserManagementRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		948BD85B2387CADD0054DCA9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				948BD85C2387CAF10054DCA9 /* SignOutInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		949A7F012386AE0500309BBA /* AddNote */ = {
 			isa = PBXGroup;
 			children = (
@@ -552,8 +618,8 @@
 				94D2E188237AEAC2004F00CA /* SignIn.storyboard */,
 				949DC16D237C1CEE00ED7EC1 /* DI */,
 				94C1B34623799FCC006AFA55 /* UI */,
-				94C1B34823799FD6006AFA55 /* Data */,
 				94C1B34723799FD1006AFA55 /* Domain */,
+				94C1B34823799FD6006AFA55 /* Data */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -861,6 +927,7 @@
 				94461A5223856C500092030E /* EditNoteRepositoryImp.swift in Sources */,
 				94C1B34123799BAC006AFA55 /* UIViewController+Extensions.swift in Sources */,
 				94C1B3532379A293006AFA55 /* SignUpRepository.swift in Sources */,
+				948BD8652387CF8B0054DCA9 /* UserManagementNavigator.swift in Sources */,
 				94264DA423757E6D00D5397D /* NiblessViewController.swift in Sources */,
 				94D2E176237AB257004F00CA /* SignUpViewModel.swift in Sources */,
 				947F1A482383DAB900B2BDFD /* ListNotesRepositoryImp.swift in Sources */,
@@ -868,6 +935,7 @@
 				94D2E184237AD3A1004F00CA /* WelcomeNavigator.swift in Sources */,
 				94D2E182237ACD94004F00CA /* SignUpNavigator.swift in Sources */,
 				94CDE465237D9359002FFD8C /* MobileNumberValidator.swift in Sources */,
+				948BD8532387C5C20054DCA9 /* UserManagementRepositoryImp.swift in Sources */,
 				949DC16C237C187D00ED7EC1 /* SignInViewModel.swift in Sources */,
 				94264D8823755D5C00D5397D /* UserSession.swift in Sources */,
 				94D2E17D237AB2B5004F00CA /* SignUpContainer.swift in Sources */,
@@ -885,6 +953,7 @@
 				947F1A432383D0A500B2BDFD /* ListNotesCell.swift in Sources */,
 				949A7F0B2386B51100309BBA /* AddNoteViewModel.swift in Sources */,
 				94D2E178237AB26B004F00CA /* SignUpViewController.swift in Sources */,
+				948BD8512387C5920054DCA9 /* UserManagementRepository.swift in Sources */,
 				94461A5023856BFF0092030E /* EditNoteRepository.swift in Sources */,
 				941A3B812377F3EB0042BE30 /* WelcomeRemoteRepositoryImp.swift in Sources */,
 				94C1B3502379A1FF006AFA55 /* RegisterInfo.swift in Sources */,
@@ -894,6 +963,7 @@
 				949A7F092386AE6D00309BBA /* AddNoteViewController.swift in Sources */,
 				949A7F0D2386B55500309BBA /* AddNoteRepository.swift in Sources */,
 				94CDE467237D937D002FFD8C /* RequiredFieldValidator.swift in Sources */,
+				948BD84D2387C55E0054DCA9 /* UserManagementViewModel.swift in Sources */,
 				94D2E18B237AEB0F004F00CA /* SignInViewController.swift in Sources */,
 				9446C44A2372B6A400D3F220 /* AppDelegate.swift in Sources */,
 				949DC166237C148700ED7EC1 /* SignInInteractor.swift in Sources */,
@@ -906,6 +976,7 @@
 				949DC16F237C1CFD00ED7EC1 /* SignInContainer.swift in Sources */,
 				9446C44C2372B6A400D3F220 /* SceneDelegate.swift in Sources */,
 				94461A4D23856BC70092030E /* EditNoteViewModel.swift in Sources */,
+				948BD8562387C5FD0054DCA9 /* UserManagementContainer.swift in Sources */,
 				94AB374E2382A0CF0038471F /* Note.swift in Sources */,
 				947F1A502383F64300B2BDFD /* ListNotesViewModel.swift in Sources */,
 				94C1B3572379A9B4006AFA55 /* SignUpInteractor.swift in Sources */,
@@ -914,6 +985,7 @@
 				94CDE45E237D655F002FFD8C /* SignInNavigator.swift in Sources */,
 				947F1A572384076C00B2BDFD /* ListNotesNavigator.swift in Sources */,
 				94B5AE1B23855FC900651FD7 /* EditNoteContainer.swift in Sources */,
+				948BD85D2387CAF10054DCA9 /* SignOutInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

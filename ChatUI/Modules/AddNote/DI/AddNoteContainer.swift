@@ -43,7 +43,7 @@ class AddNoteContainer {
 extension AddNoteContainer: AddNoteNavigator {
     func goToListNotes() {
         appDependencyContainer
-            .navigationController
-            .popViewController(animated: true)
+            .rootNavigationController
+            .dismiss(animated: true, completion: nil)
     }
 }

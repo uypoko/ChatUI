@@ -16,53 +16,61 @@ class AppDependencyContainer {
     var remoteDatabase: Firestore { Firestore.firestore() }
     var remoteStorage: StorageReference { Storage.storage().reference() }
     var auth: Auth { Auth.auth() }
-    let navigationController = UINavigationController()
     let localRepository = LocalRepositoryImp()
     let userSessionSubject: BehaviorSubject<UserSession?> = BehaviorSubject<UserSession?>(value: nil)
     let pathProvider = PathProvider()
     
-    private let disposeBag = DisposeBag()
-    
-    func constructRootViewController() -> UIViewController {
-        var rootViewController: UIViewController = WelcomeContainer(appDependencyContainer: self).makeWelcomeViewController()
-        
-        loadUserSession()
-            .subscribe(onCompleted: {
-                rootViewController = self.constructSignedInTabBarViewController()
-            })
-            .disposed(by: disposeBag)
-        
-        navigationController.pushViewController(rootViewController, animated: false)
-        return navigationController
+    weak var window: UIWindow?
+    var rootNavigationController = UINavigationController() {
+        didSet {
+            window?.rootViewController = rootNavigationController
+            window?.makeKeyAndVisible()
+        }
     }
     
-    func constructSignedInTabBarViewController() -> UITabBarController {
+    private let disposeBag = DisposeBag()
+    
+    func loadUserSession() {
+        localRepository.fetchUserSession()
+            .subscribe(
+                onSuccess: { userSession in
+                    self.userSessionSubject.onNext(userSession)
+                    if userSession != nil {
+                        self.rootNavigationController = self.constructSignedInTabBarRootView()
+                    } else {
+                        self.rootNavigationController = self.constructWelcomeRootView()
+                    }
+                },
+                onError: { error in
+                    self.userSessionSubject.onNext(nil)
+                })
+            .disposed(by: self.disposeBag)
+        
+    }
+    
+    func constructWelcomeRootView() -> UINavigationController {
+        let welcomeContainer = WelcomeContainer(appDependencyContainer: self)
+        let welcomeVC = welcomeContainer.makeWelcomeViewController()
+        
+        return UINavigationController(rootViewController: welcomeVC)
+    }
+    
+    func constructSignedInTabBarRootView() -> UINavigationController {
         let tabBarController = UITabBarController()
         
         let listNotesContainer = ListNotesContainer(appDependencyContainer: self)
         let listNotesVC = listNotesContainer.constructListNotesViewController()
+        let listNotesIcon = UIImage(named: "baseline_list_black_36pt")
+        listNotesVC.tabBarItem = UITabBarItem(title: nil, image: listNotesIcon, tag: 0)
         
-        tabBarController.viewControllers = [listNotesVC]
-        return tabBarController
+        let userManagementContainer = UserManagementContainer(appDependencyContainer: self)
+        let userManagementVC = userManagementContainer.constructUserManagementViewController()
+        let userManagementIcon = UIImage(named: "baseline_account_circle_black_36pt")
+        userManagementVC.tabBarItem = UITabBarItem(title: nil, image: userManagementIcon, tag: 1)
+        
+        tabBarController.viewControllers = [listNotesVC, userManagementVC]
+        
+        return UINavigationController(rootViewController: tabBarController)
     }
     
-    func loadUserSession() -> Completable {
-        return Completable.create(subscribe: { completable in
-            let disposables = Disposables.create()
-            
-            self.localRepository.fetchUserSession()
-                .subscribe(
-                    onSuccess: { userSession in
-                        self.userSessionSubject.onNext(userSession)
-                        completable(.completed)
-                    },
-                    onError: { error in
-                        self.userSessionSubject.onNext(nil)
-                        completable(.error(error))
-                    })
-                .disposed(by: self.disposeBag)
-            
-            return disposables
-        })
-    }
 }

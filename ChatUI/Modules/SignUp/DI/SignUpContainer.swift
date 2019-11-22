@@ -41,7 +41,7 @@ extension SignUpContainer: SignUpNavigator {
     func goToSignIn(email: String, password: String) {
         let signInContainer = SignInContainer(appDependencyContainer: appDependencyContainer)
         let signInVC = signInContainer.constructSignInViewController(email: email, password: password)
-        appDependencyContainer.navigationController.present(signInVC, animated: true, completion: nil)
+        appDependencyContainer.rootNavigationController.present(signInVC, animated: true, completion: nil)
     }
     
 }

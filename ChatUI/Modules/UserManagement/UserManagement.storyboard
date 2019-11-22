@@ -63,6 +63,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="t5Y-li-iOi"/>
                     </view>
+                    <connections>
+                        <outlet property="signOutButton" destination="I85-SY-1Kh" id="ihp-Zj-6jR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UP4-h8-lPB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

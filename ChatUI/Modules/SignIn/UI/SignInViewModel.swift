@@ -59,7 +59,7 @@ class SignInViewModel {
     }
     
     func didShowSuccessMessage() {
-        print("Navigate to Home")
+        navigator.goToListNotes()
     }
     
     private func handleError(error: Error) {

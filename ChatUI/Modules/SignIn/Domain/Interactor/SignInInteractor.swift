@@ -11,13 +11,13 @@ import RxSwift
 
 struct SignInInteractor {
     private let signInRepository: SignInRepository
-    private let localRepository: LocalRepository
+    private let userSessionRepository: UserSessionRepository
     
     private let disposeBag = DisposeBag()
     
-    init(signInRepository: SignInRepository, localRepository: LocalRepository) {
+    init(signInRepository: SignInRepository, userSessionRepository: UserSessionRepository) {
         self.signInRepository = signInRepository
-        self.localRepository = localRepository
+        self.userSessionRepository = userSessionRepository
     }
     
     func signIn(email: String, password: String) -> Completable {
@@ -26,13 +26,11 @@ struct SignInInteractor {
             
             self.signInRepository
                 .signIn(email: email, password: password)
-                .subscribe(
-                    onSuccess: { userSession in
-                        self.localRepository.persistUserSession(userSession: userSession)
-                        completable(.completed)
-                    },
-                    onError: { completable(.error($0)) })
-                .disposed(by: self.disposeBag)
+                .done {
+                    self.userSessionRepository.persistUserSession(userSession: $0)
+                    completable(.completed)
+                }
+                .catch { completable(.error($0)) }
             
             return disposables
         }

@@ -5,8 +5,8 @@
 //  Created by Ryan on 11/13/19.
 //  Copyright © 2019 Daylighter. All rights reserved.
 //
-import RxSwift
+import PromiseKit
 
 protocol SignInRepository {
-    func signIn(email: String, password: String) -> Single<UserSession>
+    func signIn(email: String, password: String) -> Promise<UserSession>
 }

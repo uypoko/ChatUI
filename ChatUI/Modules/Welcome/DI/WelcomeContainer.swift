@@ -22,10 +22,9 @@ class WelcomeContainer {
             fatalError("Failed to initialize WelcomeViewController from storyboard")
         }
         
-        let repository = WelcomeRemoteRepositoryImp(remoteStorage: appDependencyContainer.remoteStorage)
-        let loadWelcomeLogo = LoadWelcomeLogo(welcomeRemoteRepository: repository)
+        let logoRepository = LogoRepositoryImp(remoteStorage: appDependencyContainer.remoteStorage)
         let welcomeViewModel = WelcomeViewModel(
-            loadWelcomeLogo: loadWelcomeLogo,
+            logoRepository: logoRepository,
             welcomeNavigator: self)
         welcomeVC.viewModel = welcomeViewModel
         

@@ -20,10 +20,8 @@ struct SignInRepositoryImp: SignInRepository {
         self.remoteDatabase = remoteDatabase
     }
     
-    func signIn(email: String, password: String) -> Single<UserSession> {
-        return Single.create(subscribe: { single in
-            let disposables = Disposables.create()
-            
+    func signIn(email: String, password: String) -> Promise<UserSession> {
+        return Promise { seal in
             self.auth.signIn(withEmail: email, password: password) { authData, error in
                 if let user = authData?.user {
                     
@@ -38,17 +36,15 @@ struct SignInRepositoryImp: SignInRepository {
                                     mobileNumber: userInfo.mobileNumber,
                                     token: token)
                                 
-                                single(.success(userSession))
+                                seal.fulfill(userSession)
                             },
-                            onError: { single(.error($0)) })
+                            onError: { seal.reject($0) })
                         .disposed(by: self.disposeBag)
                 } else if let error = error {
-                    single(.error(error))
+                    seal.reject(error)
                 }
             }
-            
-            return disposables
-        })
+        }
     }
     
     private func getToken(user: User) -> Single<String> {

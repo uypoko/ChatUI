@@ -25,7 +25,7 @@ class UserManagementContainer {
         let repository = UserManagementRepositoryImp(auth: appDependencyContainer.auth)
         let signOutInteractor = SignOutInteractor(
             userManagementRepo: repository,
-            localRepo: appDependencyContainer.localRepository)
+            localRepo: appDependencyContainer.userSessionRepository)
         
         let viewModel = UserManagementViewModel(interactor: signOutInteractor, navigator: self)
         

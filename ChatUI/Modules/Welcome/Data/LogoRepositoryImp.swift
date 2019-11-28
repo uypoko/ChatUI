@@ -9,7 +9,7 @@
 import Firebase
 import RxSwift
 
-struct WelcomeRemoteRepositoryImp: WelcomeRemoteRepository {
+struct LogoRepositoryImp: LogoRepository {
     private let remoteStorage: StorageReference
     
     init(remoteStorage: StorageReference) {

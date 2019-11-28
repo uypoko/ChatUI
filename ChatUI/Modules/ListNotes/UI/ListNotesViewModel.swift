@@ -31,6 +31,17 @@ class ListNotesViewModel {
         self.listNotesRepository = listNotesRepository
         self.navigator = navigator
         notes = listNotesRepository.fetchNotes()
+        
+        respondToUserSessionChange()
+    }
+    
+    private func respondToUserSessionChange() {
+        hasUserSession
+            .filter { !$0 }
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigator.goToWelcome()
+            })
+            .disposed(by: disposeBag)
     }
     
     func goToEditNote(note: Note) {

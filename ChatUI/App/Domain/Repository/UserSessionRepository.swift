@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol LocalRepository {
+protocol UserSessionRepository {
     func fetchUserSession() -> Single<UserSession?>
     func persistUserSession(userSession: UserSession?)
 }

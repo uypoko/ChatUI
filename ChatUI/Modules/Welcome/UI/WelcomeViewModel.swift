@@ -11,15 +11,15 @@ import RxSwift
 
 class WelcomeViewModel {
     var logoData: Single<Data> {
-        return loadWelcomeLogo.load()
+        return logoRepository.loadLogo()
     }
     
     private let disposeBag = DisposeBag()
-    private let loadWelcomeLogo: LoadWelcomeLogo
+    private let logoRepository: LogoRepository
     private let welcomeNavigator: WelcomeNavigator
     
-    init(loadWelcomeLogo: LoadWelcomeLogo, welcomeNavigator: WelcomeNavigator) {
-        self.loadWelcomeLogo = loadWelcomeLogo
+    init(logoRepository: LogoRepository, welcomeNavigator: WelcomeNavigator) {
+        self.logoRepository = logoRepository
         self.welcomeNavigator = welcomeNavigator
     }
     

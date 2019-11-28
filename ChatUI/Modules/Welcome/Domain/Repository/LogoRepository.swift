@@ -8,6 +8,6 @@
 
 import RxSwift
 
-protocol WelcomeRemoteRepository {
+protocol LogoRepository {
     func loadLogo() -> Single<Data>
 }

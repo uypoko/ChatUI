@@ -29,7 +29,7 @@ class SignInContainer {
             remoteDatabase: appDependencyContainer.remoteDatabase)
         let signInInteractor = SignInInteractor(
             signInRepository: signInRepository,
-            localRepository: appDependencyContainer.localRepository)
+            userSessionRepository: appDependencyContainer.userSessionRepository)
         let viewModel = SignInViewModel(
             signInInteractor: signInInteractor,
             validator: validatorProvider,

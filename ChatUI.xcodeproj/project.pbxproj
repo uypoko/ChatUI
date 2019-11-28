@@ -11,16 +11,14 @@
 		941A3B6E2377E6EB0042BE30 /* UserManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B6D2377E6EB0042BE30 /* UserManagementViewController.swift */; };
 		941A3B782377ED270042BE30 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B772377ED270042BE30 /* WelcomeViewController.swift */; };
 		941A3B7A2377EE0E0042BE30 /* WelcomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B792377EE0E0042BE30 /* WelcomeContainer.swift */; };
-		941A3B7F2377F37B0042BE30 /* WelcomeRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B7E2377F37B0042BE30 /* WelcomeRemoteRepository.swift */; };
-		941A3B812377F3EB0042BE30 /* WelcomeRemoteRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B802377F3EB0042BE30 /* WelcomeRemoteRepositoryImp.swift */; };
+		941A3B7F2377F37B0042BE30 /* LogoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B7E2377F37B0042BE30 /* LogoRepository.swift */; };
+		941A3B812377F3EB0042BE30 /* LogoRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B802377F3EB0042BE30 /* LogoRepositoryImp.swift */; };
 		941A3B842377F7EC0042BE30 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B832377F7EC0042BE30 /* WelcomeViewModel.swift */; };
-		941A3B872377F9720042BE30 /* LoadWelcomeLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941A3B862377F9720042BE30 /* LoadWelcomeLogo.swift */; };
 		94264D7523755B0800D5397D /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264D7423755B0800D5397D /* AppDependencyContainer.swift */; };
-		94264D8123755CA500D5397D /* LocalRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264D8023755CA500D5397D /* LocalRepositoryImp.swift */; };
-		94264D8523755D1700D5397D /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264D8423755D1700D5397D /* LocalRepository.swift */; };
+		94264D8123755CA500D5397D /* UserSessionRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264D8023755CA500D5397D /* UserSessionRepositoryImp.swift */; };
+		94264D8523755D1700D5397D /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264D8423755D1700D5397D /* UserSessionRepository.swift */; };
 		94264D8823755D5C00D5397D /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264D8723755D5C00D5397D /* UserSession.swift */; };
 		94264D8D2375601C00D5397D /* ReadUserSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264D8C2375601C00D5397D /* ReadUserSessionError.swift */; };
-		94264DA423757E6D00D5397D /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94264DA323757E6D00D5397D /* NiblessViewController.swift */; };
 		94264DA72375860200D5397D /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94264DA62375860200D5397D /* Welcome.storyboard */; };
 		94264DA9237589B000D5397D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94264DA8237589B000D5397D /* GoogleService-Info.plist */; };
 		94461A4D23856BC70092030E /* EditNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94461A4C23856BC70092030E /* EditNoteViewModel.swift */; };
@@ -93,16 +91,14 @@
 		941A3B6D2377E6EB0042BE30 /* UserManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementViewController.swift; sourceTree = "<group>"; };
 		941A3B772377ED270042BE30 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		941A3B792377EE0E0042BE30 /* WelcomeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeContainer.swift; sourceTree = "<group>"; };
-		941A3B7E2377F37B0042BE30 /* WelcomeRemoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRemoteRepository.swift; sourceTree = "<group>"; };
-		941A3B802377F3EB0042BE30 /* WelcomeRemoteRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeRemoteRepositoryImp.swift; sourceTree = "<group>"; };
+		941A3B7E2377F37B0042BE30 /* LogoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoRepository.swift; sourceTree = "<group>"; };
+		941A3B802377F3EB0042BE30 /* LogoRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoRepositoryImp.swift; sourceTree = "<group>"; };
 		941A3B832377F7EC0042BE30 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
-		941A3B862377F9720042BE30 /* LoadWelcomeLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadWelcomeLogo.swift; sourceTree = "<group>"; };
 		94264D7423755B0800D5397D /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
-		94264D8023755CA500D5397D /* LocalRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepositoryImp.swift; sourceTree = "<group>"; };
-		94264D8423755D1700D5397D /* LocalRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
+		94264D8023755CA500D5397D /* UserSessionRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepositoryImp.swift; sourceTree = "<group>"; };
+		94264D8423755D1700D5397D /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
 		94264D8723755D5C00D5397D /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		94264D8C2375601C00D5397D /* ReadUserSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadUserSessionError.swift; sourceTree = "<group>"; };
-		94264DA323757E6D00D5397D /* NiblessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		94264DA62375860200D5397D /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		94264DA8237589B000D5397D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		94461A4C23856BC70092030E /* EditNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewModel.swift; sourceTree = "<group>"; };
@@ -197,7 +193,6 @@
 		941A3B7B2377F31D0042BE30 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				941A3B852377F9430042BE30 /* Interactor */,
 				941A3B7D2377F3390042BE30 /* Repository */,
 			);
 			path = Domain;
@@ -206,7 +201,7 @@
 		941A3B7C2377F3290042BE30 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				941A3B802377F3EB0042BE30 /* WelcomeRemoteRepositoryImp.swift */,
+				941A3B802377F3EB0042BE30 /* LogoRepositoryImp.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -214,7 +209,7 @@
 		941A3B7D2377F3390042BE30 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				941A3B7E2377F37B0042BE30 /* WelcomeRemoteRepository.swift */,
+				941A3B7E2377F37B0042BE30 /* LogoRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -227,14 +222,6 @@
 				94D2E183237AD3A1004F00CA /* WelcomeNavigator.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		941A3B852377F9430042BE30 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				941A3B862377F9720042BE30 /* LoadWelcomeLogo.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		941A3B882377FE2E0042BE30 /* DI */ = {
@@ -273,7 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				94AB374F2382A4250038471F /* Realm */,
-				94264D8023755CA500D5397D /* LocalRepositoryImp.swift */,
+				94264D8023755CA500D5397D /* UserSessionRepositoryImp.swift */,
 				94AB37522382A8540038471F /* PathProvider.swift */,
 			);
 			path = Data;
@@ -283,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				94AB374C2382A0BF0038471F /* Data Entities */,
-				94D2E185237ADF36004F00CA /* Interactor */,
 				94264D8623755D4A00D5397D /* Model */,
 				94264D8323755D0100D5397D /* Repository */,
 			);
@@ -293,7 +279,7 @@
 		94264D8323755D0100D5397D /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				94264D8423755D1700D5397D /* LocalRepository.swift */,
+				94264D8423755D1700D5397D /* UserSessionRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -319,17 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				94C1B33F23799B97006AFA55 /* Extensions */,
-				94264DA223757E3300D5397D /* NiblessCoponents */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		94264DA223757E3300D5397D /* NiblessCoponents */ = {
-			isa = PBXGroup;
-			children = (
-				94264DA323757E6D00D5397D /* NiblessViewController.swift */,
-			);
-			path = NiblessCoponents;
 			sourceTree = "<group>";
 		};
 		94264DA5237585A300D5397D /* Welcome */ = {
@@ -338,8 +315,8 @@
 				94264DA62375860200D5397D /* Welcome.storyboard */,
 				941A3B882377FE2E0042BE30 /* DI */,
 				941A3B822377F79E0042BE30 /* UI */,
-				941A3B7C2377F3290042BE30 /* Data */,
 				941A3B7B2377F31D0042BE30 /* Domain */,
+				941A3B7C2377F3290042BE30 /* Data */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -735,13 +712,6 @@
 			path = DI;
 			sourceTree = "<group>";
 		};
-		94D2E185237ADF36004F00CA /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		94F44848237FF05D005B8C01 /* ListNotes */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,7 +898,6 @@
 				94C1B34123799BAC006AFA55 /* UIViewController+Extensions.swift in Sources */,
 				94C1B3532379A293006AFA55 /* SignUpRepository.swift in Sources */,
 				948BD8652387CF8B0054DCA9 /* UserManagementNavigator.swift in Sources */,
-				94264DA423757E6D00D5397D /* NiblessViewController.swift in Sources */,
 				94D2E176237AB257004F00CA /* SignUpViewModel.swift in Sources */,
 				947F1A482383DAB900B2BDFD /* ListNotesRepositoryImp.swift in Sources */,
 				94264D7523755B0800D5397D /* AppDependencyContainer.swift in Sources */,
@@ -939,11 +908,10 @@
 				949DC16C237C187D00ED7EC1 /* SignInViewModel.swift in Sources */,
 				94264D8823755D5C00D5397D /* UserSession.swift in Sources */,
 				94D2E17D237AB2B5004F00CA /* SignUpContainer.swift in Sources */,
-				94264D8123755CA500D5397D /* LocalRepositoryImp.swift in Sources */,
+				94264D8123755CA500D5397D /* UserSessionRepositoryImp.swift in Sources */,
 				94AB37532382A8540038471F /* PathProvider.swift in Sources */,
 				94B5AE1823855CB000651FD7 /* EditNoteViewController.swift in Sources */,
 				941A3B782377ED270042BE30 /* WelcomeViewController.swift in Sources */,
-				941A3B872377F9720042BE30 /* LoadWelcomeLogo.swift in Sources */,
 				94264D8D2375601C00D5397D /* ReadUserSessionError.swift in Sources */,
 				94D2E187237ADF54004F00CA /* ValidatorProvider.swift in Sources */,
 				941A3B842377F7EC0042BE30 /* WelcomeViewModel.swift in Sources */,
@@ -955,7 +923,7 @@
 				94D2E178237AB26B004F00CA /* SignUpViewController.swift in Sources */,
 				948BD8512387C5920054DCA9 /* UserManagementRepository.swift in Sources */,
 				94461A5023856BFF0092030E /* EditNoteRepository.swift in Sources */,
-				941A3B812377F3EB0042BE30 /* WelcomeRemoteRepositoryImp.swift in Sources */,
+				941A3B812377F3EB0042BE30 /* LogoRepositoryImp.swift in Sources */,
 				94C1B3502379A1FF006AFA55 /* RegisterInfo.swift in Sources */,
 				941A3B6E2377E6EB0042BE30 /* UserManagementViewController.swift in Sources */,
 				949A7F132386BCD500309BBA /* AddNoteContainer.swift in Sources */,
@@ -967,12 +935,12 @@
 				94D2E18B237AEB0F004F00CA /* SignInViewController.swift in Sources */,
 				9446C44A2372B6A400D3F220 /* AppDelegate.swift in Sources */,
 				949DC166237C148700ED7EC1 /* SignInInteractor.swift in Sources */,
-				941A3B7F2377F37B0042BE30 /* WelcomeRemoteRepository.swift in Sources */,
+				941A3B7F2377F37B0042BE30 /* LogoRepository.swift in Sources */,
 				949DC171237C1D6F00ED7EC1 /* SignInRepositoryImp.swift in Sources */,
 				949DC16A237C14AA00ED7EC1 /* SignInRepository.swift in Sources */,
 				947F1A4E2383F50600B2BDFD /* UITableView+Extensions.swift in Sources */,
 				941A3B7A2377EE0E0042BE30 /* WelcomeContainer.swift in Sources */,
-				94264D8523755D1700D5397D /* LocalRepository.swift in Sources */,
+				94264D8523755D1700D5397D /* UserSessionRepository.swift in Sources */,
 				949DC16F237C1CFD00ED7EC1 /* SignInContainer.swift in Sources */,
 				9446C44C2372B6A400D3F220 /* SceneDelegate.swift in Sources */,
 				94461A4D23856BC70092030E /* EditNoteViewModel.swift in Sources */,

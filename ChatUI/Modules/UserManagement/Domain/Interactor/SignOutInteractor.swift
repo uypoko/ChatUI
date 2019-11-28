@@ -13,9 +13,9 @@ import RxSwift
 struct SignOutInteractor {
     
     private let userManagementRepo: UserManagementRepository
-    private let localRepo: LocalRepository
+    private let localRepo: UserSessionRepository
     
-    init(userManagementRepo: UserManagementRepository, localRepo: LocalRepository) {
+    init(userManagementRepo: UserManagementRepository, localRepo: UserSessionRepository) {
         self.userManagementRepo = userManagementRepo
         self.localRepo = localRepo
     }

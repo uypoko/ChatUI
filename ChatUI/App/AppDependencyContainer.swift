@@ -16,7 +16,7 @@ class AppDependencyContainer {
     var remoteDatabase: Firestore { Firestore.firestore() }
     var remoteStorage: StorageReference { Storage.storage().reference() }
     var auth: Auth { Auth.auth() }
-    let localRepository = LocalRepositoryImp()
+    let userSessionRepository = UserSessionRepositoryImp()
     let userSessionSubject: BehaviorSubject<UserSession?> = BehaviorSubject<UserSession?>(value: nil)
     let pathProvider = PathProvider()
     
@@ -31,7 +31,7 @@ class AppDependencyContainer {
     private let disposeBag = DisposeBag()
     
     func loadUserSession() {
-        localRepository.fetchUserSession()
+        userSessionRepository.fetchUserSession()
             .subscribe(
                 onSuccess: { userSession in
                     self.userSessionSubject.onNext(userSession)

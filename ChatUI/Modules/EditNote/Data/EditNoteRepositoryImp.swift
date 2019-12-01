@@ -16,26 +16,23 @@ struct EditNoteRepositoryImp: EditNoteRepository {
     }
     
     func changeTitle(to title: String?, id: String) {
-        let predicate = NSPredicate(format: "id = %@", id)
-        guard let result = realm.objects(Note.self).filter(predicate).first else { return }
+        guard let note = realm.object(ofType: Note.self, forPrimaryKey: id) else { return }
         try? realm.write {
-            result.title = title
+            note.title = title
         }
     }
     
     func changeContent(to content: String, id: String) {
-        let predicate = NSPredicate(format: "id = %@", id)
-        guard let result = realm.objects(Note.self).filter(predicate).first else { return }
+        guard let note = realm.object(ofType: Note.self, forPrimaryKey: id) else { return }
         try? realm.write {
-            result.text = content
+            note.text = content
         }
     }
     
     func deleteNote(id: String) {
-        let predicate = NSPredicate(format: "id = %@", id)
-        guard let result = realm.objects(Note.self).filter(predicate).first else { return }
+        guard let note = realm.object(ofType: Note.self, forPrimaryKey: id) else { return }
         try? realm.write {
-            realm.delete(result)
+            realm.delete(note)
         }
     }
 }

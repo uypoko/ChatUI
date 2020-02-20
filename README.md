@@ -19,6 +19,12 @@ Data is synchronized with Realm database. However, it is not backed up to Fireba
 A container is responsible for injecting dependencies into every objects in the module then return its view controller and navigation.
 * App Dependency Container: contains all long-lived dependencies. The container lives as long as the app lives, held by AppDelegate.
 * Module Dependency Container: contains module-level dependencies, takes App Dependency Container as init parameter. The container lives as long as the view controller lives, held by View Model through Navigation class-bound protocol.
+### MVVM
+MVVM is used to decouple views from models.
+### Repository Pattern
+The repository pattern provides facades for networking, persistence and in-memory caching, which are responsible for CRUD operations. When combined with MVVM, view models use these repository facades, instead of performing these operations themselves.
+\
+![Screenshot](Screenshots/clean-architecture.jpg)
 \
 ![Screenshot](Screenshots/Notes.gif)
 ## Built with
